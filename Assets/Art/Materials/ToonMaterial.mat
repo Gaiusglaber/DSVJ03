@@ -53,13 +53,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_533C9C05: 0.482
-    - Vector1_911421B8: 0.298
+    - Vector1_533C9C05: 0.504
+    - Vector1_911421B8: 0
     - Vector1_A7207CA3: 1.09
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CellShading: 251
+    - _CellShading: 240
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
