@@ -31,18 +31,23 @@ public class Player : MonoBehaviour
             UI.SetActive(false);
         }
         JumpMechanic();
-    }     
+    }
     void JumpMechanic()
     {
         float YVelocity = rigidBody.worldCenterOfMass.y;
-        if (YVelocity >0.9f&& YVelocity!=0)
+        if (YVelocity > 0.9f && YVelocity != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space)&&bounceCounter<1)
+            if (Input.GetKeyDown(KeyCode.Space) && bounceCounter < 1)
             {
-                rigidBody.AddForce(new Vector3(0, jumpSpeed*50, 0));
+                rigidBody.AddForce(new Vector3(0, jumpSpeed * 50, 0));
                 bounceCounter++;
             }
-        }else if (YVelocity < 0.8f)
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                rigidBody.AddForce(transform.forward * jumpSpeed * 25);
+            }
+        }
+        else if (YVelocity < 0.8f)
         {
             bounceCounter = 0;
         }
