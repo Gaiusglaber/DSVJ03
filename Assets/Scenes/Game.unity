@@ -449,8 +449,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9149ac101ad644498e500b9c6bac6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 340104638}
+  jumpSpeed: 12
   distance: 5
   UI: {fileID: 443934675}
+--- !u!54 &340104638 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5426510, guid: 7737647c22c1fc64a88d5cd030c352ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1729281575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443934675
 GameObject:
   m_ObjectHideFlags: 0
