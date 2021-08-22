@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 12f;
     [SerializeField] private float distance = 5;
     [SerializeField] public GameObject UI;
+    [SerializeField] private int bounceCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +37,14 @@ public class Player : MonoBehaviour
         float YVelocity = rigidBody.worldCenterOfMass.y;
         if (YVelocity >0.9f&& YVelocity!=0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)&&bounceCounter<1)
             {
                 rigidBody.AddForce(new Vector3(0, jumpSpeed*50, 0));
+                bounceCounter++;
             }
+        }else if (YVelocity < 0.8f)
+        {
+            bounceCounter = 0;
         }
     }
 }

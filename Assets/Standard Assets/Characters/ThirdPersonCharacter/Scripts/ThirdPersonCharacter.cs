@@ -28,8 +28,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
-
-
 		void Start()
 		{
 			m_Animator = GetComponent<Animator>();
@@ -41,23 +39,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
-
-
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
-
 			ApplyExtraTurnRotation();
-
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
@@ -67,11 +57,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				HandleAirborneMovement();
 			}
-
 			ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
-
-			// send input and other state parameters to the animator
 			UpdateAnimator(move);
 		}
 
