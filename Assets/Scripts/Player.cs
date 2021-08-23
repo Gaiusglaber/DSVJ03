@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] float jumpSpeed = 12f;
     [SerializeField] private float distance = 5;
-    [SerializeField] public GameObject UI;
     [SerializeField] private int bounceCounter = 0;
     // Start is called before the first frame update
     void Start()
@@ -23,12 +22,10 @@ public class Player : MonoBehaviour
         {
             if (hit.transform.CompareTag("Door"))
             {
-                UI.SetActive(true);
             }
         }
         else
         {
-            UI.SetActive(false);
         }
         JumpMechanic();
     }
