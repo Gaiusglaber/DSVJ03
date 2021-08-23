@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
     }
     void JumpMechanic()
     {
-        float YVelocity = rigidBody.worldCenterOfMass.y;
-        if (YVelocity > 0.9f && YVelocity != 0)
+        float YVelocity = rigidBody.velocity.y;
+        if (YVelocity > 0)
         {
             if (Input.GetKeyDown(KeyCode.Space) && bounceCounter < 1)
             {
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
                 rigidBody.AddForce(transform.forward * jumpSpeed * 25);
             }
         }
-        else if (YVelocity < 0.8f)
+        else if (YVelocity == 0)
         {
             bounceCounter = 0;
         }
