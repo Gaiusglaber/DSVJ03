@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spikes : MonoBehaviour
+public class AutoSpikes : MonoBehaviour
 {
     [SerializeField] private GameObject spikesGO;
-    private bool moving=false;
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField] private float timeToSpikes;
+    private void Start()
     {
-        if (collision.transform.CompareTag("Player")&&!moving)
-        {
-            StartCoroutine(SpikesGoUp());
-            moving = true;
-        }
+        StartCoroutine(SpikesGoUp());
     }
     IEnumerator SpikesGoUp()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToSpikes);
         float time = 0;
         float speed = 1;
-        Vector3 FinalPosition = new Vector3(spikesGO.transform.position.x, spikesGO.transform.position.y+1, spikesGO.transform.position.z);
+        Vector3 FinalPosition = new Vector3(spikesGO.transform.position.x, spikesGO.transform.position.y + 1, spikesGO.transform.position.z);
         Vector3 InitialPosition = spikesGO.transform.position;
         while (time < 1)
         {
-            time += Time.deltaTime*speed;
+            time += Time.deltaTime * speed;
             spikesGO.transform.position = Vector3.Lerp(spikesGO.transform.position, FinalPosition, time);
             yield return new WaitForEndOfFrame();
         }
@@ -41,6 +37,7 @@ public class Spikes : MonoBehaviour
             spikesGO.transform.position = Vector3.Lerp(spikesGO.transform.position, initialPos, time);
             yield return new WaitForEndOfFrame();
         }
-        moving = false;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(SpikesGoUp());
     }
 }
