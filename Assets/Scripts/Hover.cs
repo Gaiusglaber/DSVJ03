@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 public class Hover : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform followTransform;
+    private Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.3F;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.up * Mathf.Cos(Time.time);
+        transform.position = Vector3.SmoothDamp(transform.position, followTransform.position, ref velocity, smoothTime);
+
+        float amplitude = 0.03f;
+        float frequency = 0.3f;
+        Vector3 tempPos = transform.position;
+
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+        transform.position = tempPos;
     }
 }
