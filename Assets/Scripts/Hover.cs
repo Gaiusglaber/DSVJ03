@@ -12,6 +12,7 @@ public class Hover : MonoBehaviour
     {
         transform.position = Vector3.SmoothDamp(transform.position, followTransform.position, ref velocity, smoothTime);
         transform.forward = Vector3.SmoothDamp(transform.forward, followTransform.forward, ref velocity, smoothTime);
+
         float amplitude = 0.03f;
         float frequency = 0.3f;
         Vector3 tempPos = transform.position;
