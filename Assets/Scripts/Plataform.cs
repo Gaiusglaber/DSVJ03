@@ -28,7 +28,7 @@ public class Plataform : MonoBehaviour
     }
     IEnumerator PlataformGo()
     {
-        yield return new WaitForSeconds(timeToMove);
+        //yield return new WaitForSeconds(timeToMove);
         float time = 0;
         float speed = 1;
         Vector3 FinalPosition = new Vector3(transform.position.x+toGo, transform.position.y, transform.position.z);
@@ -38,13 +38,13 @@ public class Plataform : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, FinalPosition, time);
             yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForSeconds(timeToMove);
+        //yield return new WaitForSeconds(timeToMove);
         StartCoroutine(PlataformReturn());
     }
     IEnumerator PlataformReturn()
     {
-        float speed = 1;
         float time = 0;
+        float speed = 1;
         while (time < timeToMove)
         {
             time += Time.deltaTime * speed;
