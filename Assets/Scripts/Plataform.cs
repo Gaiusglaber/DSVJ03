@@ -6,12 +6,14 @@ public class Plataform : MonoBehaviour
 {
     public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE }
     [SerializeField] public PLATAFORMTYPES plataformTypes;
-    [SerializeField] private float timeToMove;
-    [SerializeField] private float timeToBreak;
-    [SerializeField] private float toGo;
-    private Vector3 initialPos;
+    [SerializeField] public float timeToMove=0;
+    [SerializeField] public float timeToBreak=0;
+    [SerializeField] public float toGo=0;
+    private Vector3 initialPos=Vector3.zero;
+    private Vector3 FinalPosition = Vector3.zero;
     private void Start()
     {
+        FinalPosition = new Vector3(transform.position.x + toGo, transform.position.y, transform.position.z);
         initialPos = transform.position;
         switch (plataformTypes) {
             case PLATAFORMTYPES.MOVE:
@@ -35,7 +37,7 @@ public class Plataform : MonoBehaviour
         while (time < timeToMove)
         {
             time += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(transform.position, FinalPosition, time);
+            transform.position = Vector3.Lerp(initialPos, FinalPosition, time);
             yield return new WaitForEndOfFrame();
         }
         //yield return new WaitForSeconds(timeToMove);
@@ -48,10 +50,10 @@ public class Plataform : MonoBehaviour
         while (time < timeToMove)
         {
             time += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(transform.position, initialPos, time);
+            transform.position = Vector3.Lerp(FinalPosition, initialPos, time);
             yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForSeconds(timeToMove);
+        //yield return new WaitForSeconds(timeToMove);
         StartCoroutine(PlataformGo());
     }
     private void OnCollisionEnter(Collision collision)
