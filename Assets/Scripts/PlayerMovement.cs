@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _velocity;
     private CharacterController _controller;
 
+    public event Action OnPlayerDie;
+    public event Action OnPlayerCompletedLevel;
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -32,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
         Move();
         if (OnSteepSlope()) SteepSlopeMovement();
+        if (transform.position.y <= -36)
+        {
+            OnPlayerDie?.Invoke();
+        }
+        
     }
 
     private void Move()
@@ -130,13 +138,11 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Plataform") && GetComponent<Rigidbody>().velocity == Vector3.zero)
+        if (collision.transform.CompareTag("LevelCompletion"))
         {
-            transform.parent = collision.transform;
+            OnPlayerCompletedLevel?.Invoke();
         }
-        else
-            transform.parent = null;
     }
 }

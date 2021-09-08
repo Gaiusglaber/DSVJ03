@@ -8,6 +8,8 @@ TagManager:
   - Plataform
   - CollectableA
   - CollectableB
+  - LevelCompletion
+  - SceneTransition
   layers:
   - Default
   - TransparentFX
