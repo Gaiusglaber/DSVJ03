@@ -130,4 +130,13 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Plataform") && GetComponent<Rigidbody>().velocity == Vector3.zero)
+        {
+            transform.parent = collision.transform;
+        }
+        else
+            transform.parent = null;
+    }
 }

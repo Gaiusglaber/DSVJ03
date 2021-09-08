@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6441629112179536058}
   m_Layer: 0
   m_Name: Plataform
-  m_TagString: Untagged
+  m_TagString: Plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plataformTypes: 0
-  timeToMove: 0
+  DestPos1: {x: 0, y: 0, z: 0}
+  speedLerper: 0
   timeToBreak: 0
-  toGo: 0
+  secondsToStop: 0
 --- !u!95 &2506039952134307569
 Animator:
   serializedVersion: 3

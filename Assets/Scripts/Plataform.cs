@@ -1,23 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Numetry.Tools.Lerper;
 using UnityEngine;
 
 public class Plataform : MonoBehaviour
 {
     public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE }
     [SerializeField] public PLATAFORMTYPES plataformTypes;
-    [SerializeField] public float timeToMove=0;
-    [SerializeField] public float timeToBreak=0;
-    [SerializeField] public float toGo=0;
-    private Vector3 initialPos=Vector3.zero;
-    private Vector3 FinalPosition = Vector3.zero;
+    public Vector3 DestPos1;
+    private Vector3 InitialPosition;
+    public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
+    public float speedLerper = 0;
+    public float timeToBreak;
+    public float secondsToStop = 0;
     private void Start()
     {
-        FinalPosition = new Vector3(transform.position.x + toGo, transform.position.y, transform.position.z);
-        initialPos = transform.position;
+        InitialPosition = transform.position;
         switch (plataformTypes) {
             case PLATAFORMTYPES.MOVE:
-                StartCoroutine(PlataformGo());
+                StartCoroutine(GoToPos1());
                 break;
             case PLATAFORMTYPES.BREAK:
                 break;
@@ -28,42 +29,66 @@ public class Plataform : MonoBehaviour
                 break;
         }
     }
-    IEnumerator PlataformGo()
+    private IEnumerator GoToPos1()
     {
-        //yield return new WaitForSeconds(timeToMove);
-        float time = 0;
-        float speed = 1;
-        Vector3 FinalPosition = new Vector3(transform.position.x+toGo, transform.position.y, transform.position.z);
-        while (time < timeToMove)
+        PosLerper.SetValues(InitialPosition, DestPos1, speedLerper, true);
+        while (PosLerper.On)
         {
-            time += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(initialPos, FinalPosition, time);
-            yield return new WaitForEndOfFrame();
-        }
-        //yield return new WaitForSeconds(timeToMove);
-        StartCoroutine(PlataformReturn());
-    }
-    IEnumerator PlataformReturn()
-    {
-        float time = 0;
-        float speed = 1;
-        while (time < timeToMove)
-        {
-            time += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(FinalPosition, initialPos, time);
-            yield return new WaitForEndOfFrame();
-        }
-        //yield return new WaitForSeconds(timeToMove);
-        StartCoroutine(PlataformGo());
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (plataformTypes == PLATAFORMTYPES.BREAK)
-        {
-            if (collision.transform.CompareTag("Player"))
+            PosLerper.Update();
+            transform.position = PosLerper.CurrentValue;
+            if (PosLerper.Reached)
             {
-                StartCoroutine(PlataformStartBreak(transform.position));
+                PosLerper.SwitchState(false);
             }
+            else
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return new WaitForSeconds(secondsToStop);
+        StartCoroutine(GoBackPos1());
+    }
+    private IEnumerator GoBackPos1()
+    {
+        PosLerper.SetValues(DestPos1, InitialPosition, speedLerper, true);
+        while (PosLerper.On)
+        {
+            PosLerper.Update();
+            transform.position = PosLerper.CurrentValue;
+            if (PosLerper.Reached)
+            {
+                PosLerper.SwitchState(false);
+            }
+            else
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return new WaitForSeconds(secondsToStop);
+        StartCoroutine(GoToPos1());
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            switch (plataformTypes)
+            {
+                case PLATAFORMTYPES.MOVE:
+                    collision.transform.parent = transform;
+                    break;
+                case PLATAFORMTYPES.MOVEANDDAMAGE:
+                    break;
+                case PLATAFORMTYPES.BREAK:
+                    StartCoroutine(PlataformStartBreak(transform.position));
+                    break;
+            }
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.transform.parent = null;
         }
     }
     IEnumerator PlataformStartBreak(Vector3 initialPos)

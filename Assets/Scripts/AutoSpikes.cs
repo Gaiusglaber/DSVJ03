@@ -6,6 +6,7 @@ public class AutoSpikes : MonoBehaviour
 {
     [SerializeField] private GameObject spikesGO;
     [SerializeField] private float timeToSpikes;
+    [SerializeField] private float spikesUp=0;
     private void Start()
     {
         StartCoroutine(SpikesGoUp());
@@ -15,7 +16,7 @@ public class AutoSpikes : MonoBehaviour
         yield return new WaitForSeconds(timeToSpikes);
         float time = 0;
         float speed = 1;
-        Vector3 FinalPosition = new Vector3(spikesGO.transform.position.x, spikesGO.transform.position.y + 1, spikesGO.transform.position.z);
+        Vector3 FinalPosition = new Vector3(spikesGO.transform.position.x, spikesGO.transform.position.y + spikesUp, spikesGO.transform.position.z);
         Vector3 InitialPosition = spikesGO.transform.position;
         while (time < 1)
         {
