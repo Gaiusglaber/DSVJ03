@@ -12,7 +12,6 @@ public class CollectableA : MonoBehaviour
         {
             Destroy(gameObject);
             OnPlayerCollect?.Invoke(tag);
-            //añadir al score
         }
     }
     // Update is called once per frame
