@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _rotationSpeed = 180;
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _slideSpeed;
@@ -11,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _gravity;
     [SerializeField] private float _jumpHeight;
+    [SerializeField] private float _slopeForce;
     private float _groundRayDistance = 1;
     private RaycastHit _slopeHit;
 
+    private int _jumpCounter;
     private Vector3 _moveDirection;
+    private Vector3 _rotation;
     private Vector3 _velocity;
     private CharacterController _controller;
 
@@ -25,30 +29,34 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         Move();
         if (OnSteepSlope()) SteepSlopeMovement();
     }
 
     private void Move()
     {
-        _isGrounded = Physics.CheckSphere(transform.position, _groundCheckDistance,_groundMask);
+        _isGrounded = Physics.CheckSphere(transform.position, _groundCheckDistance, _groundMask);
 
         if (_isGrounded && _velocity.y < 0)
         {
             _velocity.y = -2f;
+            _jumpCounter = 0;
         }
 
         float moveZ = Input.GetAxis("Vertical");
-        float moveX = Input.GetAxis("Horizontal");
-        _moveDirection = new Vector3(moveX, 0, moveZ);
+        _rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+        _moveDirection = new Vector3(0, 0, moveZ);
+        _moveDirection = transform.TransformDirection(_moveDirection);
+
+        if (_moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        {
+            Walk();
+        }
 
         if (_isGrounded)
         {
-            if (_moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
-            {
-                Walk();
-            }
-            else if (_moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            if (_moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
             {
                 Run();
             }
@@ -56,18 +64,26 @@ public class PlayerMovement : MonoBehaviour
             {
                 Idle();
             }
-
-            _moveDirection *= _moveSpeed;
+        }
+        if (_isGrounded || _jumpCounter < 2)
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
+                _jumpCounter++;
             }
         }
 
+
+        _moveDirection *= _moveSpeed;
+
         _controller.Move(_moveDirection * Time.deltaTime);
 
-        _velocity.y += _gravity * Time.deltaTime;
-        _controller.Move(_velocity * Time.deltaTime);
+        transform.Rotate(_rotation);
+
+        _velocity.y += _gravity * Time.deltaTime; //solo toca y
+
+        _controller.Move(_velocity * Time.deltaTime); //solo toca y
     }
 
     private void Idle()
@@ -112,5 +128,6 @@ public class PlayerMovement : MonoBehaviour
         _moveDirection.y = _moveDirection.y - _slopeHit.point.y;
 
         _controller.Move(_moveDirection * Time.deltaTime);
+        _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
 }
