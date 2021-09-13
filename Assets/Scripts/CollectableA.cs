@@ -6,9 +6,9 @@ public class CollectableA : MonoBehaviour
 {
     // Start is called before the first frame update
     public static event Action<string> OnPlayerCollect;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Player"))
         {
             Destroy(gameObject);
             OnPlayerCollect?.Invoke(tag);

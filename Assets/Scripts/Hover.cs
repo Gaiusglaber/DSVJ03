@@ -13,7 +13,7 @@ public class Hover : MonoBehaviour
     [SerializeField] private float secondsToHeal = 0;
     void Start()
     {
-        initialColor = GetComponent<Renderer>().material.color;
+        initialColor = GetComponentInChildren<MeshRenderer>().material.color;
         Enemy.OnPlayerHit += MaterialChange;
         Spikes.OnPlayerHit += MaterialChange;
     }
@@ -32,7 +32,10 @@ public class Hover : MonoBehaviour
         while (colorLerper.On)
         {
             colorLerper.Update();
-            GetComponent<Renderer>().material.color = colorLerper.CurrentValue;
+            foreach (var renderer in GetComponentsInChildren<MeshRenderer>())
+            {
+                renderer.material.color = colorLerper.CurrentValue;
+            }
             if (colorLerper.Reached)
             {
                 colorLerper.SwitchState(false);
@@ -52,7 +55,10 @@ public class Hover : MonoBehaviour
         while (colorLerper.On)
         {
             colorLerper.Update();
-            GetComponent<Renderer>().material.color = colorLerper.CurrentValue;
+            foreach(var renderer in GetComponentsInChildren<MeshRenderer>())
+            {
+                renderer.material.color = colorLerper.CurrentValue;
+            }
             if (colorLerper.Reached)
             {
                 colorLerper.SwitchState(false);
@@ -65,7 +71,8 @@ public class Hover : MonoBehaviour
     }
     void FixedUpdate()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, followTransform.position, ref velocity, smoothTime);
+        Vector3 playerPos = new Vector3(followTransform.position.x-2, followTransform.position.y + 3, followTransform.position.z-2);
+        transform.position = Vector3.SmoothDamp(transform.position, playerPos, ref velocity, smoothTime);
         transform.forward = Vector3.SmoothDamp(transform.forward, followTransform.forward, ref velocity, smoothTime);
 
         float amplitude = 0.03f;
