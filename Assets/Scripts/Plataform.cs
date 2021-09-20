@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Plataform : MonoBehaviour
 {
-    public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE }
+    public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE,JUMPABLE }
     [SerializeField] public PLATAFORMTYPES plataformTypes;
+    [SerializeField] private float jumpingForce = 0;
     public Vector3 DestPos1;
     private Vector3 InitialPosition;
     public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
@@ -23,9 +24,6 @@ public class Plataform : MonoBehaviour
             case PLATAFORMTYPES.BREAK:
                 break;
             case PLATAFORMTYPES.MOVEANDDAMAGE:
-                break;
-            default:
-                Debug.LogError("Invalid plataform type!");
                 break;
         }
     }
@@ -67,7 +65,7 @@ public class Plataform : MonoBehaviour
         yield return new WaitForSeconds(secondsToStop);
         StartCoroutine(GoToPos1());
     }
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
@@ -80,6 +78,10 @@ public class Plataform : MonoBehaviour
                     break;
                 case PLATAFORMTYPES.BREAK:
                     StartCoroutine(PlataformStartBreak(transform.position));
+                    break;
+                case PLATAFORMTYPES.JUMPABLE:
+                    collision.transform.GetComponent<Rigidbody>().velocity= new Vector3(collision.transform.GetComponent<Rigidbody>().velocity.x,
+                        collision.transform.GetComponent<Rigidbody>().velocity.y*jumpingForce, collision.transform.GetComponent<Rigidbody>().velocity.z);
                     break;
             }
         }
