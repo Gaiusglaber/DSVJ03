@@ -12,15 +12,6 @@ public class MainMenu : MonoBehaviour
     public Animator animatorScene;
     private int SceneIndex;
     private bool pressed;
-    private void Start()
-    {
-        if (PlayerPrefs.GetInt("HighScore") < GameManager.GetInstance().HighScore)
-        {
-            PlayerPrefs.SetInt("HighScore", GameManager.GetInstance().HighScore);
-        }
-        score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-        GameManager.GetInstance().HighScore = 0;
-    }
     void Update()
     {
         InputController();
@@ -49,14 +40,6 @@ public class MainMenu : MonoBehaviour
     public void Credits()
     {
         StartCoroutine("CreditsPressed");
-    }
-    public void MouseOnPlay()
-    {
-        scoreObjetc.SetActive(true);
-    }
-    public void MouseExitPlay()
-    {
-        scoreObjetc.SetActive(false);
     }
     public void Exit()
     {

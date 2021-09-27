@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         while (PosLerper.On)
         {
             PosLerper.Update();
-            transform.position = PosLerper.CurrentValue;
+            transform.localPosition = PosLerper.CurrentValue;
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
