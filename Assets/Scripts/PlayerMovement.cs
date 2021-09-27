@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _gravity;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _slopeForce;
+    [SerializeField] private Transform _raycast;
     private float _groundRayDistance = 1;
     private RaycastHit _slopeHit;
 
@@ -32,14 +33,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
         Move();
         if (OnSteepSlope()) SteepSlopeMovement();
         if (transform.position.y <= -36)
         {
             OnPlayerDie?.Invoke();
         }
-        
     }
 
     private void Move()
@@ -85,7 +84,14 @@ public class PlayerMovement : MonoBehaviour
 
         _moveDirection *= _moveSpeed;
 
-        _controller.Move(_moveDirection * Time.deltaTime);
+        if (!_isGrounded && Physics.Raycast(_raycast.position, _raycast.forward, 1, _groundMask))
+        {
+            _moveSpeed = 0;
+        }
+        else
+        {
+            _controller.Move(_moveDirection * Time.deltaTime);
+        }
 
         transform.Rotate(_rotation);
 
