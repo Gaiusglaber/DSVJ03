@@ -2,6 +2,7 @@
 using System;
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private KeyCode keyToTurnOnLantern = KeyCode.Escape;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed = 180;
     [SerializeField] private float _walkSpeed;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     public event Action OnPlayerDie;
     public event Action OnPlayerCompletedLevel;
+    public event Action OnTurnOnLantern;
 
     void Start()
     {
@@ -36,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(keyToTurnOnLantern))
+        {
+            OnTurnOnLantern?.Invoke();
+        }
         if (OnSteepSlope()) SteepSlopeMovement();
         if (transform.position.y <= -36)
         {

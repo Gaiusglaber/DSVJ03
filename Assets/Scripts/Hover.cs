@@ -3,12 +3,14 @@ using Numetry.Tools.Lerper;
 using System.Collections;
 public class Hover : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement player;
     public Transform followTransform;
     private Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.3F;
     private ColorLerper colorLerper= new ColorLerper(0f, AbstractLerper<Color>.SMOOTH_TYPE.STEP_SMOOTHER);
     private Color initialColor;
     [SerializeField] private Material materialToDmg;
+    [SerializeField] private MeshRenderer meshHover;
     [SerializeField]private float colorChangingSpeed = 0;
     [SerializeField] private float secondsToHeal = 0;
     void Start()
@@ -16,11 +18,17 @@ public class Hover : MonoBehaviour
         initialColor = GetComponentInChildren<MeshRenderer>().material.color;
         Enemy.OnPlayerHit += MaterialChange;
         Spikes.OnPlayerHit += MaterialChange;
+        player.OnTurnOnLantern += TurnLantern;
     }
     private void OnDestroy()
     {
         Enemy.OnPlayerHit -= MaterialChange;
         Spikes.OnPlayerHit -= MaterialChange;
+        player.OnTurnOnLantern -= TurnLantern;
+    }
+    private void TurnLantern()
+    {
+
     }
     private void MaterialChange()
     {
@@ -32,10 +40,7 @@ public class Hover : MonoBehaviour
         while (colorLerper.On)
         {
             colorLerper.Update();
-            foreach (var renderer in GetComponentsInChildren<MeshRenderer>())
-            {
-                renderer.material.color = colorLerper.CurrentValue;
-            }
+            meshHover.material.color = colorLerper.CurrentValue;
             if (colorLerper.Reached)
             {
                 colorLerper.SwitchState(false);
@@ -55,10 +60,7 @@ public class Hover : MonoBehaviour
         while (colorLerper.On)
         {
             colorLerper.Update();
-            foreach(var renderer in GetComponentsInChildren<MeshRenderer>())
-            {
-                renderer.material.color = colorLerper.CurrentValue;
-            }
+            meshHover.material.color = colorLerper.CurrentValue;
             if (colorLerper.Reached)
             {
                 colorLerper.SwitchState(false);
