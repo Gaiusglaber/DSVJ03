@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _rotation;
     private Vector3 _velocity;
     private CharacterController _controller;
+    private Animator _animator;
 
     public event Action OnPlayerDie;
     public event Action OnPlayerCompletedLevel;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -98,6 +100,14 @@ public class PlayerMovement : MonoBehaviour
         _velocity.y += _gravity * Time.deltaTime; //solo toca y
 
         _controller.Move(_velocity * Time.deltaTime); //solo toca y
+
+        if (_controller.velocity == Vector3.zero)
+            _animator.SetFloat("Speed", 0);
+        else
+        {
+            _animator.SetFloat("Speed", 1);
+        }
+        Debug.Log(_controller.velocity);
     }
 
     private void Idle()

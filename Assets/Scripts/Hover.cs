@@ -69,13 +69,13 @@ public class Hover : MonoBehaviour
             }
         }
     }
-    void FixedUpdate()
+    void Update()
     {
         Vector3 playerPos = new Vector3(followTransform.position.x-2, followTransform.position.y + 3, followTransform.position.z-2);
         transform.position = Vector3.SmoothDamp(transform.position, playerPos, ref velocity, smoothTime);
         transform.forward = Vector3.SmoothDamp(transform.forward, followTransform.forward, ref velocity, smoothTime);
 
-        float amplitude = 0.03f;
+        float amplitude = 0.003f;
         float frequency = 0.3f;
         Vector3 tempPos = transform.position;
 
