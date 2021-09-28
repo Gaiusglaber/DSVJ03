@@ -4,6 +4,7 @@ using System.Collections;
 public class Hover : MonoBehaviour
 {
     [SerializeField] private PlayerMovement player;
+    [SerializeField] private Animator hoverAnimator;
     public Transform followTransform;
     private Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.3F;
@@ -13,6 +14,7 @@ public class Hover : MonoBehaviour
     [SerializeField] private MeshRenderer meshHover;
     [SerializeField]private float colorChangingSpeed = 0;
     [SerializeField] private float secondsToHeal = 0;
+    private bool light = false;
     void Start()
     {
         initialColor = GetComponentInChildren<MeshRenderer>().material.color;
@@ -28,7 +30,16 @@ public class Hover : MonoBehaviour
     }
     private void TurnLantern()
     {
-
+        if (!light)
+        {
+            hoverAnimator.Play("TurnLightOn");
+            light = true;
+        }
+        else
+        {
+            hoverAnimator.Play("TurnLightOff");
+            light = false;
+        }
     }
     private void MaterialChange()
     {
