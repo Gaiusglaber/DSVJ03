@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        _animator.SetFloat("Speed", 0);
         _isGrounded = Physics.CheckSphere(transform.position, _groundCheckDistance, _groundMask);
 
         if (_isGrounded && _velocity.y < 0)
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (_moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
             Walk();
+            _animator.SetFloat("Speed", 1);
         }
 
         if (_isGrounded)
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             if (_moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
             {
                 Run();
+                _animator.SetFloat("Speed", 1);
             }
             else if (_moveDirection == Vector3.zero)
             {
@@ -107,12 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
         _controller.Move(_velocity * Time.deltaTime); //solo toca y
 
-        if (_controller.velocity == Vector3.zero)
-            _animator.SetFloat("Speed", 0);
-        else
-        {
-            _animator.SetFloat("Speed", 1);
-        }
         Debug.Log(_controller.velocity);
     }
 
