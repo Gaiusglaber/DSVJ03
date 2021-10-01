@@ -31,22 +31,19 @@ public class GameManager : MonoBehaviour
     public int level = 1;
     public void GameOver()
     {
-        if (gameOver)
-        {
             GameObject animatorScene = GameObject.FindGameObjectWithTag("SceneTransition");
             if (animatorScene != null)
             {
                 animatorScene.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine("Transition");
             }
-        }
     }
     public void TransitionToNewScene()
     {
         if (Fade.faded)
         {
             Fade.faded = false;
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     IEnumerator Transition()
@@ -80,6 +77,7 @@ public class GameManager : MonoBehaviour
         if (animatorScene != null)
         {
             animatorScene.GetComponent<Animator>().SetTrigger("FadeOut");
+            StartCoroutine("Transition");
         }
     }
 }
