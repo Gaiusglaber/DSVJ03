@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private KeyCode keyToTurnOnLantern = KeyCode.Escape;
@@ -21,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private int _jumpCounter;
     private Vector3 _moveDirection;
     private Vector3 _rotation;
-    private Vector3 _velocity;
+    public Vector3 _velocity;
     private CharacterController _controller;
     private Animator _animator;
 
@@ -87,9 +89,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Jump();
+                _animator.SetBool("IsJumpStart", true);
                 _jumpCounter++;
             }
+        }
+
+        if (_animator.GetBool("IsJumpStart") && _animator.GetCurrentAnimatorStateInfo(0).IsName("JumpStart"))
+        {
+            _animator.SetBool("IsJumpStart", false);
+            Jump();
         }
 
 
@@ -108,9 +116,18 @@ public class PlayerMovement : MonoBehaviour
 
         _velocity.y += _gravity * Time.deltaTime; //solo toca y
 
+        if (!_isGrounded && _velocity.y <= 0)
+        {
+            _animator.SetBool("IsJumpDown", true);
+        }
+        else if (_isGrounded && _animator.GetBool("IsJumpDown")) 
+        {
+            _animator.SetBool("IsLanding",true);
+            _animator.SetBool("IsJumpDown", false);
+        }
+
         _controller.Move(_velocity * Time.deltaTime); //solo toca y
 
-        Debug.Log(_controller.velocity);
     }
 
     private void Idle()
