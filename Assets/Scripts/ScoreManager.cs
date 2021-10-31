@@ -22,12 +22,12 @@ public class ScoreManager : MonoBehaviour
         if (tag == "CollectableA")
         {
             collectableACant++;
-            collectableAText.text = collectableACant.ToString() + " / " + maxWhiteCollectables;
+            collectableAText.text = collectableACant.ToString();
         }
         else
         {
             collectableBCant++;
-            collectableBText.text = collectableBCant.ToString();
+            collectableBText.text = collectableBCant.ToString() + " / " + maxWhiteCollectables;
         }
     }
 }
