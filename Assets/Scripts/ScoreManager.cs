@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     private int collectableBCant = 0;
     [SerializeField] private TMP_Text collectableAText;
     [SerializeField] private TMP_Text collectableBText;
+    [SerializeField] private int maxWhiteCollectables = 0;
     private void Start()
     {
         CollectableA.OnPlayerCollect += AddScore;
@@ -21,7 +22,7 @@ public class ScoreManager : MonoBehaviour
         if (tag == "CollectableA")
         {
             collectableACant++;
-            collectableAText.text = collectableACant.ToString();
+            collectableAText.text = collectableACant.ToString() + " / " + maxWhiteCollectables;
         }
         else
         {
