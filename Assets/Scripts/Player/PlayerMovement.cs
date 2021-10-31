@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
         _velocity.y += _gravity * Time.deltaTime; //solo toca y
 
-        if (!_isGrounded && _velocity.y <= 0)
+        if (_velocity.y <= 0)
         {
             _animator.SetBool("IsJumpDown", true);
         }
@@ -127,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _controller.Move(_velocity * Time.deltaTime); //solo toca y
-
     }
 
     private void Idle()
