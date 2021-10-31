@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 2e6d2f1a4d7c7d146abdd0646bf08e77
   - enabled: 1
-    path: Assets/Scenes/MovementTest.unity
+    path: Assets/Scenes/Gameplay.unity
     guid: bf4df300cf9c437479e5120afba22aaa
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
