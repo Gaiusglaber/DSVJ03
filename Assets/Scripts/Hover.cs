@@ -21,12 +21,14 @@ public class Hover : MonoBehaviour
         Enemy.OnPlayerHit += MaterialChange;
         Spikes.OnPlayerHit += MaterialChange;
         player.OnTurnOnLantern += TurnLantern;
+        Plataform.OnPlayerHit += MaterialChange;
     }
     private void OnDestroy()
     {
         Enemy.OnPlayerHit -= MaterialChange;
         Spikes.OnPlayerHit -= MaterialChange;
         player.OnTurnOnLantern -= TurnLantern;
+        Plataform.OnPlayerHit -= MaterialChange;
     }
     private void TurnLantern()
     {
