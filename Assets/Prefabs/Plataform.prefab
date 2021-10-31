@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7937712612818726501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.49, y: 2.04, z: 14.01}
-  m_LocalScale: {x: 2.5281298, y: 0.2875024, z: 2.1766665}
+  m_LocalScale: {x: 2.5, y: 0.2875024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plataformTypes: 0
+  jumpingForce: 0
   DestPos1: {x: 0, y: 0, z: 0}
   speedLerper: 0
   timeToBreak: 0
@@ -112,7 +113,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b1457f49a60d2ec4596a1a07d599d4e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

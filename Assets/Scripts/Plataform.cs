@@ -8,12 +8,13 @@ public class Plataform : MonoBehaviour
     public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE,JUMPABLE }
     [SerializeField] public PLATAFORMTYPES plataformTypes;
     [SerializeField] private float jumpingForce = 0;
-    public Vector3 DestPos1;
-    private Vector3 InitialPosition;
+    public Vector3 DestPos1 = Vector3.zero;
+    private Vector3 InitialPosition = Vector3.zero;
     public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
     public float speedLerper = 0;
     public float timeToBreak;
     public float secondsToStop = 0;
+    private bool hited = false;
     private void Start()
     {
         InitialPosition = transform.position;
@@ -24,6 +25,7 @@ public class Plataform : MonoBehaviour
             case PLATAFORMTYPES.BREAK:
                 break;
             case PLATAFORMTYPES.MOVEANDDAMAGE:
+                StartCoroutine(GoToPos1());
                 break;
         }
     }
@@ -75,6 +77,8 @@ public class Plataform : MonoBehaviour
                     collision.transform.parent = transform;
                     break;
                 case PLATAFORMTYPES.MOVEANDDAMAGE:
+                    hited = true;
+
                     break;
                 case PLATAFORMTYPES.BREAK:
                     StartCoroutine(PlataformStartBreak(transform.position));
