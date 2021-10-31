@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 600eb58f6b763724ea624f521d7f7dfe,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4407,6 +4407,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 55d2e7df795f98242b970202a60228c2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 65839a24cf27054449d29fb0d0c6ed41, type: 2}
     - target: {fileID: 919132149155446097, guid: 55d2e7df795f98242b970202a60228c2,
         type: 3}
       propertyPath: m_Name
@@ -7687,6 +7692,7 @@ GameObject:
   - component: {fileID: 1510366593}
   - component: {fileID: 1510366592}
   - component: {fileID: 1510366591}
+  - component: {fileID: 1510366594}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7738,6 +7744,7 @@ MonoBehaviour:
   _jumpHeight: 2
   _slopeForce: 30
   _raycast: {fileID: 1836418688}
+  _velocity: {x: 0, y: 0, z: 0}
 --- !u!143 &1510366592
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7772,6 +7779,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &1510366594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510366589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ffed6a024bb804f948eb5297e067c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1511499126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6594514260015061015, guid: becdabee43a4edd47966dd32b8beb7ae,
