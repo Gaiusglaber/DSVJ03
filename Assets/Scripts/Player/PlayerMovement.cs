@@ -159,11 +159,12 @@ public class PlayerMovement : MonoBehaviour
             float _slopeAngle = Vector3.Angle(_slopeHit.normal, Vector3.up);
             if (_slopeAngle > _controller.slopeLimit) return true;
         }
-
+        _animator.SetBool("IsSliding", false);
         return false;
     }
     private void SteepSlopeMovement()
     {
+        _animator.SetBool("IsSliding", true);
         Vector3 slopedirection = Vector3.up - _slopeHit.normal * Vector3.Dot(Vector3.up, _slopeHit.normal);
         float slideSpeed = _moveSpeed + _slideSpeed;
 
