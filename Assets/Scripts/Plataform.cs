@@ -14,7 +14,7 @@ public class Plataform : MonoBehaviour
     [SerializeField] private Color colorToLerp = Color.white;
     public Vector3 DestPos1 = Vector3.zero;
     private Vector3 InitialPosition = Vector3.zero;
-    public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
+    public Vector3Lerper PosLerper = null;
     private ColorLerper colorLerper = null;
     public float speedLerper = 0;
     public float timeToBreak;
@@ -29,6 +29,7 @@ public class Plataform : MonoBehaviour
         initialColor = GetComponent<MeshRenderer>().material.color;
         colorLerper = new ColorLerper(Time.deltaTime, AbstractLerper<Color>.SMOOTH_TYPE.STEP_SMOOTHER);
         InitialPosition = transform.position;
+        PosLerper= new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
         switch (plataformTypes) {
             case PLATAFORMTYPES.MOVE:
                 StartCoroutine(GoToPos1());
