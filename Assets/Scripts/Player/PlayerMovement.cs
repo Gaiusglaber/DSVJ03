@@ -174,9 +174,9 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.CompareTag("LevelCompletion"))
+        if (other.transform.CompareTag("LevelCompletion"))
         {
             OnPlayerCompletedLevel?.Invoke();
         }

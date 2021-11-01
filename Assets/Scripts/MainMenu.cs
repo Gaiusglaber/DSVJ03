@@ -6,12 +6,17 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private TMPro.TMP_Text versionTxt = null;
     public GameObject scoreObjetc;
     public Text score;
     public Animator animatorPlayButton;
     public Animator animatorScene;
     private int SceneIndex;
     private bool pressed;
+    private void Start()
+    {
+        
+    }
     void Update()
     {
         InputController();

@@ -7,7 +7,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public PlayerMovement player;
-    private bool completed;
+    public bool completed;
     #region SINGLETON
     static private GameManager instance;
     static public GameManager GetInstance() { return instance; }
