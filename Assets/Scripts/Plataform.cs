@@ -6,7 +6,7 @@ using System;
 
 public class Plataform : MonoBehaviour
 {
-    public enum PLATAFORMTYPES {MOVE,BREAK,MOVEANDDAMAGE,JUMPABLE }
+    public enum PLATAFORMTYPES { MOVE, BREAK, MOVEANDDAMAGE, JUMPABLE }
     [SerializeField] public PLATAFORMTYPES plataformTypes;
     [SerializeField] private float jumpingForce = 0;
     [SerializeField] private float secondsToDamage = 0;
@@ -14,7 +14,7 @@ public class Plataform : MonoBehaviour
     [SerializeField] private Color colorToLerp = Color.white;
     public Vector3 DestPos1 = Vector3.zero;
     private Vector3 InitialPosition = Vector3.zero;
-    public Vector3Lerper PosLerper = null;
+    public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
     private ColorLerper colorLerper = null;
     public float speedLerper = 0;
     public float timeToBreak;
@@ -24,13 +24,16 @@ public class Plataform : MonoBehaviour
     private float timer = 0;
     private Color initialColor;
     public static event Action OnPlayerHit;
+    private GameObject player = null;
+    private Rigidbody rb = null;
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         initialColor = GetComponent<MeshRenderer>().material.color;
         colorLerper = new ColorLerper(Time.deltaTime, AbstractLerper<Color>.SMOOTH_TYPE.STEP_SMOOTHER);
         InitialPosition = transform.position;
-        PosLerper= new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
-        switch (plataformTypes) {
+        switch (plataformTypes)
+        {
             case PLATAFORMTYPES.MOVE:
                 StartCoroutine(GoToPos1());
                 break;
@@ -42,13 +45,22 @@ public class Plataform : MonoBehaviour
                 break;
         }
     }
+    private void LateUpdate()
+    {
+        /*if (player)
+        {
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+            Vector3 velocity = transform.position - InitialPosition;
+            rb.transform.Translate(velocity, transform);
+        }*/
+    }
     private IEnumerator GoToPos1()
     {
         PosLerper.SetValues(InitialPosition, DestPos1, speedLerper, true);
         while (PosLerper.On)
         {
             PosLerper.Update();
-            transform.position = PosLerper.CurrentValue;
+            rb.MovePosition(PosLerper.CurrentValue);
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
@@ -61,7 +73,7 @@ public class Plataform : MonoBehaviour
         yield return new WaitForSeconds(secondsToStop);
         StartCoroutine(GoBackPos1());
     }
-    private IEnumerator ChangeToRed() 
+    private IEnumerator ChangeToRed()
     {
         MeshRenderer actualColor = GetComponent<MeshRenderer>();
         colorLerper.SetValues(actualColor.material.color, colorToLerp, lerperColorSpeed, true);
@@ -95,7 +107,7 @@ public class Plataform : MonoBehaviour
         while (PosLerper.On)
         {
             PosLerper.Update();
-            transform.position = PosLerper.CurrentValue;
+            rb.MovePosition(PosLerper.CurrentValue);
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
@@ -118,6 +130,7 @@ public class Plataform : MonoBehaviour
                     collision.transform.parent = transform;
                     break;
                 case PLATAFORMTYPES.MOVEANDDAMAGE:
+                    collision.transform.parent = transform;
                     if (!hited && damagebleMode)
                     {
                         hited = true;
@@ -128,11 +141,28 @@ public class Plataform : MonoBehaviour
                     StartCoroutine(PlataformStartBreak(transform.position));
                     break;
                 case PLATAFORMTYPES.JUMPABLE:
-                    collision.transform.GetComponent<Rigidbody>().velocity= new Vector3(collision.transform.GetComponent<Rigidbody>().velocity.x,
-                        collision.transform.GetComponent<Rigidbody>().velocity.y*jumpingForce, collision.transform.GetComponent<Rigidbody>().velocity.z);
+                    collision.transform.GetComponent<Rigidbody>().velocity = new Vector3(collision.transform.GetComponent<Rigidbody>().velocity.x,
+                        collision.transform.GetComponent<Rigidbody>().velocity.y * jumpingForce, collision.transform.GetComponent<Rigidbody>().velocity.z);
                     break;
             }
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        //player = other.gameObject;
+        //other.transform.parent = transform;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<CharacterController>().Move(rb.velocity * Time.deltaTime);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        //player = null;
+        //other.transform.parent = null;
     }
     private void OnCollisionExit(Collision collision)
     {
