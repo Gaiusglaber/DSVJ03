@@ -179,6 +179,9 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.CompareTag("LevelCompletion"))
         {
             OnPlayerCompletedLevel?.Invoke();
+        }else if (other.transform.CompareTag("Enemy"))
+        {
+            OnPlayerDie?.Invoke();
         }
     }
 }

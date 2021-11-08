@@ -10,6 +10,7 @@ TagManager:
   - CollectableB
   - LevelCompletion
   - SceneTransition
+  - Enemy
   layers:
   - Default
   - TransparentFX
