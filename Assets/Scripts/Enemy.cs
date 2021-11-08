@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     public Vector3 DestPos2;
     private Vector3 InitialPosition;
     public Vector3Lerper PosLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
-    public Vector3Lerper RotLerper = new Vector3Lerper(0f, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
     public float speedLerper=0;
     public static event Action OnPlayerHit;
     void Start()
@@ -20,8 +19,12 @@ public class Enemy : MonoBehaviour
     private IEnumerator GoToPos1()
     {
         PosLerper.SetValues(InitialPosition, DestPos1, speedLerper,true);
+        var lookPos = DestPos1 - InitialPosition;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
         while (PosLerper.On)
         {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
             PosLerper.Update();
             transform.localPosition = PosLerper.CurrentValue;
             if (PosLerper.Reached)
@@ -38,10 +41,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator GoBackPos1()
     {
         PosLerper.SetValues(DestPos1, InitialPosition, speedLerper, true);
+        var lookPos = InitialPosition - DestPos1;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
         while (PosLerper.On)
         {
             PosLerper.Update();
             transform.position = PosLerper.CurrentValue;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
@@ -56,10 +63,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator GoToPos2()
     {
         PosLerper.SetValues(InitialPosition, DestPos2, speedLerper, true);
+        var lookPos = DestPos2 - InitialPosition;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
         while (PosLerper.On)
         {
             PosLerper.Update();
             transform.position = PosLerper.CurrentValue;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
@@ -74,10 +85,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator GoBackPos2()
     {
         PosLerper.SetValues(DestPos2, InitialPosition, speedLerper, true);
+        var lookPos = InitialPosition - DestPos2;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
         while (PosLerper.On)
         {
             PosLerper.Update();
             transform.position = PosLerper.CurrentValue;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
             if (PosLerper.Reached)
             {
                 PosLerper.SwitchState(false);
