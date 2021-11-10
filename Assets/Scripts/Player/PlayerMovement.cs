@@ -4,6 +4,9 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private TMPro.TMP_InputField InputX = null;
+    [SerializeField] private TMPro.TMP_InputField InputY = null;
+    [SerializeField] private TMPro.TMP_InputField InputZ = null;
     [SerializeField] private KeyCode keyToTurnOnLantern = KeyCode.Escape;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed = 180;
@@ -50,7 +53,11 @@ public class PlayerMovement : MonoBehaviour
             OnPlayerDie?.Invoke();
         }
     }
-
+    public void Teleport()
+    {
+        Vector3 teleportPosition = new Vector3(float.Parse(InputX.text.ToString()), float.Parse(InputY.text.ToString()), float.Parse(InputZ.text.ToString()));
+        transform.position = teleportPosition;
+    }
     private void Move()
     {
         _animator.SetFloat("Speed", 0);

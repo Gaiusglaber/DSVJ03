@@ -9,14 +9,17 @@ public class Hover : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.3F;
     private ColorLerper colorLerper= new ColorLerper(0f, AbstractLerper<Color>.SMOOTH_TYPE.STEP_SMOOTHER);
+    private Vector3Lerper posLerper = null;
     private Color initialColor;
     [SerializeField] private Material materialToDmg;
     [SerializeField] private MeshRenderer meshHover;
     [SerializeField]private float colorChangingSpeed = 0;
     [SerializeField] private float secondsToHeal = 0;
     private bool light = false;
+    public bool paused = false;
     void Start()
     {
+        posLerper = new Vector3Lerper(0, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
         initialColor = GetComponentInChildren<MeshRenderer>().material.color;
         Enemy.OnPlayerHit += MaterialChange;
         Spikes.OnPlayerHit += MaterialChange;
@@ -84,7 +87,7 @@ public class Hover : MonoBehaviour
             }
         }
     }
-    void Update()
+    void FollowPlayer()
     {
         Vector3 playerPos = new Vector3(followTransform.position.x - 2, followTransform.position.y + 2,
             followTransform.position.z - 2);
@@ -97,5 +100,9 @@ public class Hover : MonoBehaviour
 
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
         transform.position = tempPos;
+    }
+    void Update()
+    {
+        FollowPlayer();
     }
 }
