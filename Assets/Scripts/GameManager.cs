@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (animatorScene != null)
         {
             animatorScene.GetComponent<Animator>().SetTrigger("FadeOut");
-            StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex-1));
+            StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex-2));
         }
     }
 }

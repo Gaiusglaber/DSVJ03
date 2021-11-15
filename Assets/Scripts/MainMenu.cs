@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
     {
         pressed = false;
         yield return new WaitForSeconds(1);
-        FadeLevel(SceneManager.GetActiveScene().buildIndex + 2);
+        FadeLevel(SceneManager.GetActiveScene().buildIndex + 1);
         yield return null;
     }
     IEnumerator CreditsPressed()

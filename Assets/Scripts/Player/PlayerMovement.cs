@@ -206,4 +206,8 @@ public class PlayerMovement : MonoBehaviour
             GameManager.GetInstance().GameOver();
         }
     }
+    public void ChangeScene()
+    {
+        GameManager.GetInstance().GoBackToHub();
+    }
 }
