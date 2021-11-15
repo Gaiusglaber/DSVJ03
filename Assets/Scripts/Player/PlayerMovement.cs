@@ -201,6 +201,9 @@ public class PlayerMovement : MonoBehaviour
         }else if (other.transform.CompareTag("Enemy"))
         {
             OnPlayerDie?.Invoke();
+        }else if (other.transform.CompareTag("Level1"))
+        {
+            GameManager.GetInstance().GameOver();
         }
     }
 }
