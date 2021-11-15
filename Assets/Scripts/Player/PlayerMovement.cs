@@ -24,12 +24,15 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit _slopeHit;
 
     private int _jumpCounter;
+    private bool pause = false;
     private Vector3 _moveDirection;
     private Vector3 _rotation;
     public Vector3 _velocity;
     private CharacterController _controller;
     private Animator _animator;
 
+    public event Action OnPause;
+    public event Action OnUnpause;
     public event Action OnPlayerDie;
     public event Action OnPlayerCompletedLevel;
     public event Action OnTurnOnLantern;
@@ -47,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
         {
             OnTurnOnLantern?.Invoke();
         }
+        if ((Input.GetKeyDown(KeyCode.P)||Input.GetKeyDown(KeyCode.Pause))&&!pause){
+            OnPause?.Invoke();
+            pause = true;
+        }
         if (OnSteepSlope()) SteepSlopeMovement();
         if (transform.position.y <= -36)
         {
@@ -57,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 teleportPosition = new Vector3(float.Parse(InputX.text.ToString()), float.Parse(InputY.text.ToString()), float.Parse(InputZ.text.ToString()));
         transform.position = teleportPosition;
+    }
+    public void UnPause()
+    {
+        pause = false;
+        OnUnpause?.Invoke();
     }
     private void Move()
     {

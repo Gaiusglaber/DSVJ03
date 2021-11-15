@@ -35,21 +35,22 @@ public class GameManager : MonoBehaviour
             if (animatorScene != null)
             {
                 animatorScene.GetComponent<Animator>().SetTrigger("FadeOut");
-                StartCoroutine("Transition");
+                StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex + 1));
             }
     }
-    public void TransitionToNewScene()
+    public void TransitionToNewScene(int index)
     {
+
         if (Fade.faded)
         {
             Fade.faded = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(index + 1);
         }
     }
-    IEnumerator Transition()
+    IEnumerator Transition(int index)
     {
         yield return new WaitForSeconds(2);
-        TransitionToNewScene();
+        TransitionToNewScene(index);
         yield return null;
     }
     void Start()
@@ -71,13 +72,13 @@ public class GameManager : MonoBehaviour
         completed = true;
         GoBackToHub();
     }
-    void GoBackToHub()
+    public void GoBackToHub()
     {
         GameObject animatorScene = GameObject.FindGameObjectWithTag("SceneTransition");
         if (animatorScene != null)
         {
             animatorScene.GetComponent<Animator>().SetTrigger("FadeOut");
-            StartCoroutine("Transition");
+            StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex-1));
         }
     }
 }
