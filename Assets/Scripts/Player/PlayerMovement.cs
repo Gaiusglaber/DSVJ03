@@ -113,9 +113,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (_animator.GetBool("IsJumpStart") && _animator.GetCurrentAnimatorStateInfo(0).IsName("JumpStart"))
+        if (_animator.GetBool("IsJumpStart") && _animator.GetCurrentAnimatorStateInfo(0).IsName("JumpStart")) //cambiarr
         {
             _animator.SetBool("IsJumpStart", false);
+            _animator.SetBool("IsJumpUp", true);
             Jump();
         }
 
@@ -137,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_velocity.y <= 0)
         {
+            _animator.SetBool("IsJumpUp", false);
             _animator.SetBool("IsJumpDown", true);
         }
         else if (_isGrounded && _animator.GetBool("IsJumpDown")) 
@@ -165,7 +167,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+        if (_jumpCounter == 1)
+        {
+            _velocity.y = Mathf.Sqrt(_jumpHeight*2 * -2 * _gravity);
+        }
+        else
+        {
+            _velocity.y = Mathf.Sqrt(_jumpHeight  * -2 * _gravity);
+        }
     }
 
     private bool OnSteepSlope()

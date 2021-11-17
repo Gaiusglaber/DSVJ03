@@ -13,12 +13,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _animator.SetBool("Attacking",true);
-        }
-
-        if (_animator.GetBool("Attacking") && _animator.GetCurrentAnimatorStateInfo(0).IsName("SpinEnd"))
-        {
-            _animator.SetBool("Attacking", false);
+            _animator.SetTrigger("OnAttack");
         }
     }
 }
