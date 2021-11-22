@@ -369,12 +369,12 @@ PrefabInstance:
     - target: {fileID: 8266384963055058570, guid: b9a88d1dc8d7d8945be8ccef90a630fb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 184
+      value: -703
       objectReference: {fileID: 0}
     - target: {fileID: 8266384963055058570, guid: b9a88d1dc8d7d8945be8ccef90a630fb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -238
+      value: -410
       objectReference: {fileID: 0}
     - target: {fileID: 8266384963055058570, guid: b9a88d1dc8d7d8945be8ccef90a630fb,
         type: 3}
@@ -436,7 +436,7 @@ RectTransform:
   m_GameObject: {fileID: 657260867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.200033, y: 7.350665, z: 1}
+  m_LocalScale: {x: 19.549349, y: 10.9992895, z: 1}
   m_Children: []
   m_Father: {fileID: 2041990762}
   m_RootOrder: 0
@@ -985,7 +985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -97, y: 256}
+  m_AnchoredPosition: {x: 699, y: 331}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000669670

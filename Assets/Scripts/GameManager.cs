@@ -56,7 +56,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameObject aux = GameObject.FindGameObjectWithTag("Player");
-        player = aux.GetComponent<PlayerMovement>();
+        if (aux)
+        {
+            player = aux.GetComponent<PlayerMovement>();
+        }
         if (player)
         {
             player.OnPlayerCompletedLevel += Suceed;

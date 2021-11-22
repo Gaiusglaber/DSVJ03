@@ -10,7 +10,7 @@
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac />
   <WwiseInstallationPathWindows>H:\Archivos de Programas\AudioKinetik</WwiseInstallationPathWindows>
-  <WwiseProjectPath>../DSVJ03_WwiseProject/DSVJ03_WwiseProject.wproj</WwiseProjectPath>
+  <WwiseProjectPath>../../DSVJ03/Preservation/DSVJ03_WwiseProject.wproj</WwiseProjectPath>
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>
   <WaapiIP>127.0.0.1</WaapiIP>

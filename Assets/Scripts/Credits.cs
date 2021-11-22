@@ -30,7 +30,7 @@ public class Credits : MonoBehaviour
     IEnumerator GoBackPressed()
     {
         yield return new WaitForSeconds(1);
-        FadeLevel(SceneManager.GetActiveScene().buildIndex - 1);
+        FadeLevel(0);
         yield return null;
     }
 }
