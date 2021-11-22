@@ -39,10 +39,12 @@ public class Hover : MonoBehaviour
         if (!light)
         {
             hoverAnimator.Play("TurnLightOn");
+            AkSoundEngine.PostEvent("light_switch",gameObject);
             light = true;
         }
         else
         {
+            AkSoundEngine.PostEvent("light_switch", gameObject);
             hoverAnimator.Play("TurnLightOff");
             light = false;
         }

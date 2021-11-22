@@ -21,11 +21,13 @@ public class ScoreManager : MonoBehaviour
     {
         if (tag == "CollectableA")
         {
+            AkSoundEngine.PostEvent("collect_item",gameObject);
             collectableACant++;
             collectableAText.text = collectableACant.ToString();
         }
         else
         {
+            AkSoundEngine.PostEvent("collect_special", gameObject);
             collectableBCant++;
             collectableBText.text = collectableBCant.ToString() + " / " + maxWhiteCollectables;
         }
