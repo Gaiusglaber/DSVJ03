@@ -11,10 +11,11 @@ public class Hover : MonoBehaviour
     private ColorLerper colorLerper= new ColorLerper(0f, AbstractLerper<Color>.SMOOTH_TYPE.STEP_SMOOTHER);
     private Vector3Lerper posLerper = null;
     private Color initialColor;
-    [SerializeField] private Material materialToDmg;
+    [SerializeField] private Material[] materialToDmg;
     [SerializeField] private MeshRenderer meshHover;
     [SerializeField]private float colorChangingSpeed = 0;
     [SerializeField] private float secondsToHeal = 0;
+    [SerializeField] private int life = 2;
     private bool light = false;
     public bool paused = false;
     void Start()
@@ -52,39 +53,29 @@ public class Hover : MonoBehaviour
     }
     IEnumerator ColorLerping()
     {
-        colorLerper.SetValues(initialColor, materialToDmg.color, colorChangingSpeed, true);
-        while (colorLerper.On)
+        if (life >= 0)
         {
-            colorLerper.Update();
-            meshHover.material.color = colorLerper.CurrentValue;
-            if (colorLerper.Reached)
+            colorLerper.SetValues(initialColor, materialToDmg[life].color, colorChangingSpeed, true);
+            life--;
+            while (colorLerper.On)
             {
-                colorLerper.SwitchState(false);
+                colorLerper.Update();
+                meshHover.material.color = colorLerper.CurrentValue;
+                if (colorLerper.Reached)
+                {
+                    colorLerper.SwitchState(false);
+                }
+                else
+                {
+                    yield return new WaitForEndOfFrame();
+                }
             }
-            else
-            {
-                yield return new WaitForEndOfFrame();
-            }
+            yield return null;
         }
-        yield return new WaitForSeconds(secondsToHeal);
-        StartCoroutine(HealLerping());
-
-    }
-    IEnumerator HealLerping()
-    {
-        colorLerper.SetValues(materialToDmg.color, initialColor, colorChangingSpeed, true);
-        while (colorLerper.On)
+        else
         {
-            colorLerper.Update();
-            meshHover.material.color = colorLerper.CurrentValue;
-            if (colorLerper.Reached)
-            {
-                colorLerper.SwitchState(false);
-            }
-            else
-            {
-                yield return new WaitForEndOfFrame();
-            }
+            GameManager.GetInstance().GameOver();
+            yield return null;
         }
     }
     void FollowPlayer()
