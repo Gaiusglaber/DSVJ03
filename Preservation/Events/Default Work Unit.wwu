@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{935AAA73-472D-4B52-B8F5-1BBB14DDEF03}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{935AAA73-472D-4B52-B8F5-1BBB14DDEF03}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="play_ambient" ID="{BA261C68-E6A2-4002-99E0-C904370EEFDB}">
+					<ChildrenList>
+						<Action Name="" ID="{CAD83992-7DBF-4E10-B22D-F74A44996A30}" ShortID="413430048">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambient_wind" ID="{C828D27B-C3B5-463E-BA84-1637C09315D8}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{FB3F2CD3-44D0-44DA-B3B6-40254B13BE57}" ShortID="676385448">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_ambient" ID="{6331189E-BC9F-41ED-BF6F-C09695944C7D}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="jump" ID="{674D5896-6256-4043-B8E1-4EC084F4BD29}">
+					<ChildrenList>
+						<Action Name="" ID="{490F572C-0BEF-4BEE-B6F2-5E8453A792A7}" ShortID="532966519">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_jump" ID="{3F583ACB-B1C0-424E-86FB-D20BA1E2FF49}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="light_switch" ID="{D43BF316-C463-431E-B69E-BCEC8769A75C}">
+					<ChildrenList>
+						<Action Name="" ID="{FB42A2B6-EF8A-4DFE-8C10-67D0637942CA}" ShortID="253633513">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_light" ID="{6F08AE95-14D2-4848-99E0-42C3376888C8}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="spikes" ID="{6F81619E-44D5-4A01-BD8C-6C2C9D700695}">
+					<ChildrenList>
+						<Action Name="" ID="{C3519B3E-7B90-4312-A4D6-2116EBD7854A}" ShortID="37923574">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_pinches" ID="{5641A73B-76CA-4D0A-9AA9-6BA94C1D83EA}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="enemy" ID="{02493E63-C95A-4329-951B-CA0427F39096}">
+					<ChildrenList>
+						<Action Name="" ID="{4223C868-DBB4-404A-8FF5-CAAC7AB0EE0D}" ShortID="629660843">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_enemy" ID="{5710BD4B-6F0B-490C-8EB7-C202608BFBAA}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="collect_item" ID="{2ED9E906-21E0-4F34-8F70-866EA3FFC53E}">
+					<ChildrenList>
+						<Action Name="" ID="{2068C4D5-F045-4ED7-89C1-BE04242A7FFB}" ShortID="101842776">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Collect" ID="{913A9931-F365-415B-826F-BD15FE041684}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="collect_special" ID="{9063F66A-8264-45B4-87D5-C08866969A41}">
+					<ChildrenList>
+						<Action Name="" ID="{20CF4156-CD6C-4832-9B61-57380523B0CA}" ShortID="298507032">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_collect_special" ID="{C77F6F8B-4A7A-4B8C-B198-8200957863C1}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_music" ID="{F39C3590-8567-467B-BD98-F4FD737DF8C0}">
+					<ChildrenList>
+						<Action Name="" ID="{79ECBB21-EFE8-452E-8B10-949296984CBF}" ShortID="476519185">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{22993EF6-59DA-4772-9461-6F7FCF03116B}" WorkUnitID="{1BA39DF3-1588-4D7E-A418-0C1F7E37FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_Music" ID="{CB30E6D1-101D-42EB-AAFA-09EA6145C7AD}">
+					<ChildrenList>
+						<Action Name="" ID="{FCD3EF3B-5823-46C3-B6EF-06484FE89E24}" ShortID="281694977">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{22993EF6-59DA-4772-9461-6F7FCF03116B}" WorkUnitID="{1BA39DF3-1588-4D7E-A418-0C1F7E37FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
