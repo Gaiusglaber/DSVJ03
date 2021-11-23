@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 _velocity;
     private CharacterController _controller;
     private Animator _animator;
+    private bool doubleJump = false;
 
     public event Action OnPause;
     public event Action OnUnpause;
@@ -45,17 +46,25 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
+
         if (Input.GetKeyDown(keyToTurnOnLantern))
         {
             OnTurnOnLantern?.Invoke();
         }
-        if ((Input.GetKeyDown(KeyCode.P)||Input.GetKeyDown(KeyCode.Pause))&&!pause){
+        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Pause)) && !pause)
+        {
             OnPause?.Invoke();
             pause = true;
         }
-        if (OnSteepSlope()) SteepSlopeMovement();
-        if (transform.position.y <= -36)
+        if (OnSteepSlope())
+        {
+            SteepSlopeMovement();
+        }
+        else
+        {
+            Move();
+        }
+        if (!Physics.Raycast(_raycast.position, Vector3.down, 50))
         {
             OnPlayerDie?.Invoke();
         }
@@ -79,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _velocity.y = -2f;
             _jumpCounter = 0;
+            doubleJump = false;
         }
 
         float moveZ = Input.GetAxis("Vertical");
@@ -86,73 +96,35 @@ public class PlayerMovement : MonoBehaviour
         _moveDirection = new Vector3(0, 0, moveZ);
         _moveDirection = transform.TransformDirection(_moveDirection);
 
-        if (_moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        if (_moveDirection != Vector3.zero)
         {
             Walk();
             _animator.SetFloat("Speed", 1);
         }
 
-        if (_isGrounded)
+        if (Input.GetKey(KeyCode.Space) && _jumpCounter <= 2)
         {
-            if (_moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            _jumpCounter++;
+            if (_jumpCounter == 2) 
             {
-                Run();
-                _animator.SetFloat("Speed", 1);
+                doubleJump = true;
             }
-            else if (_moveDirection == Vector3.zero)
-            {
-                Idle();
-            }
+            StartCoroutine(Jump());
         }
-        if (_isGrounded || _jumpCounter < 2)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _animator.SetBool("IsJumpStart", true);
-                _jumpCounter++;
-            }
-        }
-
-        if (_animator.GetBool("IsJumpStart") && _animator.GetCurrentAnimatorStateInfo(0).IsName("JumpStart")) //cambiarr
-        {
-            _animator.SetBool("IsJumpStart", false);
-            _animator.SetBool("IsJumpUp", true);
-            Jump();
-        }
-
-
-        _moveDirection *= _moveSpeed;
 
         if (!_isGrounded && Physics.Raycast(_raycast.position, _raycast.forward, 1, _groundMask))
         {
             _moveSpeed = 0;
         }
-        else
-        {
-            _controller.Move(_moveDirection * Time.deltaTime);
-        }
+
+        _moveDirection *= _moveSpeed;
+
+        _controller.Move(_moveDirection * Time.deltaTime);
 
         transform.Rotate(_rotation);
 
         _velocity.y += _gravity * Time.deltaTime; //solo toca y
-
-        if (_velocity.y <= 0)
-        {
-            _animator.SetBool("IsJumpUp", false);
-            _animator.SetBool("IsJumpDown", true);
-        }
-        else if (_isGrounded && _animator.GetBool("IsJumpDown")) 
-        {
-            _animator.SetBool("IsLanding",true);
-            _animator.SetBool("IsJumpDown", false);
-        }
-
         _controller.Move(_velocity * Time.deltaTime); //solo toca y
-    }
-
-    private void Idle()
-    {
-
     }
 
     private void Walk()
@@ -160,21 +132,33 @@ public class PlayerMovement : MonoBehaviour
         _moveSpeed = _walkSpeed;
     }
 
-    private void Run()
+    IEnumerator Jump()
     {
-        _moveSpeed = _runSpeed;
-    }
+        _animator.SetTrigger("OnJumpStart");
+        yield return new WaitForSeconds(0.25f);
+        _animator.ResetTrigger("OnJumpStart");
 
-    private void Jump()
-    {
-        if (_jumpCounter == 1)
+        _animator.SetTrigger("OnJumpUp");
+        _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+
+        while (_velocity.y >= 0) 
         {
-            _velocity.y = Mathf.Sqrt(_jumpHeight*2 * -2 * _gravity);
+            if (doubleJump) 
+            {
+                _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+                doubleJump = false;
+            }
+            yield return new WaitForEndOfFrame();
         }
-        else
+
+        _animator.SetTrigger("OnJumpDown");
+
+        while (!_isGrounded)
         {
-            _velocity.y = Mathf.Sqrt(_jumpHeight  * -2 * _gravity);
+            yield return new WaitForEndOfFrame();
         }
+
+        _animator.SetTrigger("OnJumpLand");
     }
 
     private bool OnSteepSlope()
@@ -190,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetBool("IsSliding", false);
         return false;
     }
+
     private void SteepSlopeMovement()
     {
         _animator.SetBool("IsSliding", true);
@@ -202,19 +187,23 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("LevelCompletion"))
         {
             OnPlayerCompletedLevel?.Invoke();
-        }else if (other.transform.CompareTag("Enemy"))
+        }
+        else if (other.transform.CompareTag("Enemy"))
         {
             OnPlayerDie?.Invoke();
-        }else if (other.transform.CompareTag("Level1"))
+        }
+        else if (other.transform.CompareTag("Level1"))
         {
             GameManager.GetInstance().GameOver();
         }
     }
+
     public void ChangeScene()
     {
         GameManager.GetInstance().GoBackToHub();
