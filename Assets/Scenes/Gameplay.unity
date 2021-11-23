@@ -10747,7 +10747,7 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 2
   DistanceUp: -2
-  smooth: 4
+  smooth: 9
   rotateAround: 0
   target: {fileID: 1711773343}
   CamOcclusion:

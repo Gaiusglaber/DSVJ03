@@ -38,8 +38,6 @@ public class CameraFollow : MonoBehaviour
     {
         //the statement below automatically positions the camera behind the target.
         rotateAround = target.eulerAngles.y - 45f;
-
-
     }
 
     void LateUpdate()
@@ -48,6 +46,7 @@ public class CameraFollow : MonoBehaviour
         HorizontalAxis = Input.GetAxis("Horizontal");
         VerticalAxis = Input.GetAxis("Vertical");
 
+        rotateAround = target.eulerAngles.y - 45f;
         //Offset of the targets transform (Since the pivot point is usually at the feet).
         Vector3 targetOffset = new Vector3(target.position.x, (target.position.y + 2f), target.position.z);
         Quaternion rotation = Quaternion.Euler(cameraHeight, rotateAround, cameraPan);
@@ -63,25 +62,14 @@ public class CameraFollow : MonoBehaviour
 
         transform.LookAt(target);
 
-        #region wrap the cam orbit rotation
-        if (rotateAround > 360)
-        {
-            rotateAround = 0f;
-        }
-        else if (rotateAround < 0f)
-        {
-            rotateAround = (rotateAround + 360f);
-        }
-        #endregion
+        rotateAround = target.eulerAngles.y - 45f;
+
 
         rotateAround += HorizontalAxis * camRotateSpeed * Time.deltaTime;
-        //DistanceUp = Mathf.Clamp(DistanceUp += VerticalAxis, -0.79f, 2.3f);
         DistanceAway = Mathf.Clamp(DistanceAway += VerticalAxis, minDistance, maxDistance);
-
     }
     void smoothCamMethod()
     {
-
         smooth = 4f;
         transform.position = Vector3.Lerp(transform.position, camPosition, Time.deltaTime * smooth);
     }

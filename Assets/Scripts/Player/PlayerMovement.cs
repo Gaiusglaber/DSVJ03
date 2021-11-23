@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (doubleJump) 
             {
-                _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+                _velocity.y += Mathf.Sqrt(_jumpHeight * -2 * _gravity);
                 doubleJump = false;
             }
             yield return new WaitForEndOfFrame();
