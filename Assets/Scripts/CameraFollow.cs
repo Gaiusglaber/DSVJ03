@@ -1,8 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Numetry.Tools.Lerper;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour,ILerpeable
 {
+    [SerializeField] private PlayerMovement player = null;
+    [SerializeField] private float posLerperSpeed = 0;
+    [SerializeField] private float rotLerperSpeed = 0;
+    [SerializeField] private Vector3 angleToRot = default;
+    [SerializeField] private Vector3 posToLerp = default;
+    public static Action OnExitEvent;
+    private float secondsToWait = 0;
+    private Vector3 initialRot = default;
+    private Vector3 initialPos = default;
+    private Vector3Lerper posLerper = null;
+    private Vector3Lerper rotLerper = null;
+    private bool lerping = false;
 
     [Header("Camera Properties")]
     private float DistanceAway;                     //how far the camera is from the player.
@@ -36,37 +50,50 @@ public class CameraFollow : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        posLerper = new Vector3Lerper(Time.deltaTime, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
+        rotLerper = new Vector3Lerper(Time.deltaTime, AbstractLerper<Vector3>.SMOOTH_TYPE.STEP_SMOOTHER);
         //the statement below automatically positions the camera behind the target.
         rotateAround = target.eulerAngles.y - 45f;
+        if (player)
+        {
+            player.OnTalkingToNpc += MoveCamera;
+        }
     }
 
     void LateUpdate()
     {
+        if (!lerping)
+        {
+            HorizontalAxis = Input.GetAxis("Horizontal");
+            VerticalAxis = Input.GetAxis("Vertical");
 
-        HorizontalAxis = Input.GetAxis("Horizontal");
-        VerticalAxis = Input.GetAxis("Vertical");
+            rotateAround = target.eulerAngles.y - 45f;
+            //Offset of the targets transform (Since the pivot point is usually at the feet).
+            Vector3 targetOffset = new Vector3(target.position.x, (target.position.y + 2f), target.position.z);
+            Quaternion rotation = Quaternion.Euler(cameraHeight, rotateAround, cameraPan);
+            Vector3 vectorMask = Vector3.one;
+            Vector3 rotateVector = rotation * vectorMask;
+            //this determines where both the camera and it's mask will be.
+            //the camMask is for forcing the camera to push away from walls.
+            camPosition = targetOffset + Vector3.up * DistanceUp - rotateVector * DistanceAway;
+            camMask = targetOffset + Vector3.up * DistanceUp - rotateVector * DistanceAway;
 
-        rotateAround = target.eulerAngles.y - 45f;
-        //Offset of the targets transform (Since the pivot point is usually at the feet).
-        Vector3 targetOffset = new Vector3(target.position.x, (target.position.y + 2f), target.position.z);
-        Quaternion rotation = Quaternion.Euler(cameraHeight, rotateAround, cameraPan);
-        Vector3 vectorMask = Vector3.one;
-        Vector3 rotateVector = rotation * vectorMask;
-        //this determines where both the camera and it's mask will be.
-        //the camMask is for forcing the camera to push away from walls.
-        camPosition = targetOffset + Vector3.up * DistanceUp - rotateVector * DistanceAway;
-        camMask = targetOffset + Vector3.up * DistanceUp - rotateVector * DistanceAway;
+            occludeRay(ref targetOffset);
+            smoothCamMethod();
 
-        occludeRay(ref targetOffset);
-        smoothCamMethod();
+            transform.LookAt(target);
 
-        transform.LookAt(target);
-
-        rotateAround = target.eulerAngles.y - 45f;
+            rotateAround = target.eulerAngles.y - 45f;
 
 
-        rotateAround += HorizontalAxis * camRotateSpeed * Time.deltaTime;
-        DistanceAway = Mathf.Clamp(DistanceAway += VerticalAxis, minDistance, maxDistance);
+            rotateAround += HorizontalAxis * camRotateSpeed * Time.deltaTime;
+            DistanceAway = Mathf.Clamp(DistanceAway += VerticalAxis, minDistance, maxDistance);
+        }
+    }
+    private void MoveCamera(float secondsToDespawn)
+    {
+        secondsToWait = secondsToDespawn;
+        StartCoroutine(Lerp(initialPos.x, posToLerp.x, posLerperSpeed));
     }
     void smoothCamMethod()
     {
@@ -89,4 +116,35 @@ public class CameraFollow : MonoBehaviour
         }
         #endregion
     }
+
+    public IEnumerator Lerp(float firstPos, float endPos, float speed)
+    {
+        lerping = true;
+        initialRot = transform.eulerAngles;
+        initialPos = transform.position;
+        rotLerper.SetValues(initialRot, angleToRot, rotLerperSpeed,true);
+        posLerper.SetValues(initialPos, posToLerp, posLerperSpeed, true);
+        while (rotLerper.On && posLerper.On)
+        {
+            rotLerper.Update();
+            posLerper.Update();
+            transform.position = posLerper.CurrentValue;
+            transform.eulerAngles = rotLerper.CurrentValue;
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(secondsToWait);
+        rotLerper.SetValues(transform.eulerAngles, initialRot, rotLerperSpeed, true);
+        posLerper.SetValues(transform.position, initialPos, posLerperSpeed, true);//srry fede lo se :´c
+        while (rotLerper.On && posLerper.On)
+        {
+            rotLerper.Update();
+            posLerper.Update();
+            transform.position = posLerper.CurrentValue;
+            transform.eulerAngles = rotLerper.CurrentValue;
+            yield return new WaitForEndOfFrame();
+        }
+        OnExitEvent?.Invoke();
+        lerping = false;
+    }
+
 }

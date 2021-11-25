@@ -12,6 +12,7 @@ TagManager:
   - SceneTransition
   - Enemy
   - Level1
+  - HiddenCollectables
   layers:
   - Default
   - TransparentFX

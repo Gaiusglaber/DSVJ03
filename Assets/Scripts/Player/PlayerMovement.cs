@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _slopeForce;
     [SerializeField] private Transform _raycast;
+    [SerializeField] private float TimeToDespawnCollectables = 0;
+    [SerializeField] private NPC[] npcs = null;
     private float _groundRayDistance = 1;
     private RaycastHit _slopeHit;
 
@@ -31,7 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _controller;
     private Animator _animator;
     private bool doubleJump = false;
+    private bool canTalkToNPC = false;
+    private bool triggerEvent = false;
+    private GameObject talkingNpc = null;
 
+    public event Action<float> OnTalkingToNpc;
     public event Action OnPause;
     public event Action OnUnpause;
     public event Action OnPlayerDie;
@@ -40,21 +46,34 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        foreach (var NPC in npcs)
+        {
+            NPC.OnGetCloseFromNPC += TalkToNPC;
+        }
+        CameraFollow.OnExitEvent += UnTriggerFlag;
         _controller = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
     }
-
-    void Update()
+    private void UnTriggerFlag()
     {
-
+        triggerEvent = false;
+        talkingNpc.SetActive(false);
+    }
+    private void CheckKeyboardInput()
+    {
         if (Input.GetKeyDown(keyToTurnOnLantern))
         {
             OnTurnOnLantern?.Invoke();
         }
-        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Pause)) && !pause)
+        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Pause)) && !pause&&!triggerEvent)
         {
             OnPause?.Invoke();
             pause = true;
+        }
+        if (Input.GetKeyDown(KeyCode.E)&&canTalkToNPC&&!triggerEvent)
+        {
+            OnTalkingToNpc?.Invoke(TimeToDespawnCollectables);
+            triggerEvent = true;
         }
         if (OnSteepSlope())
         {
@@ -69,10 +88,22 @@ public class PlayerMovement : MonoBehaviour
             OnPlayerDie?.Invoke();
         }
     }
+    void Update()
+    {
+        CheckKeyboardInput();
+    }
     public void Teleport()
     {
         Vector3 teleportPosition = new Vector3(float.Parse(InputX.text.ToString()), float.Parse(InputY.text.ToString()), float.Parse(InputZ.text.ToString()));
         transform.position = teleportPosition;
+    }
+    private void TalkToNPC(bool canTalkToNPC,GameObject NPC)
+    {
+        this.canTalkToNPC = canTalkToNPC;
+        if (canTalkToNPC)
+        {
+            talkingNpc = NPC;
+        }
     }
     public void UnPause()
     {

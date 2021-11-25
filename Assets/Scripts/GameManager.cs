@@ -64,6 +64,24 @@ public class GameManager : MonoBehaviour
         {
             player.OnPlayerCompletedLevel += Suceed;
             player.OnPlayerDie += GameOverPlayer;
+            player.OnTalkingToNpc += SpawnHiddenCollectables;
+        }
+    }
+    private void SpawnHiddenCollectables(float TimeToDespawn)
+    {
+        GameObject hiddenCollectables = GameObject.FindGameObjectWithTag("HiddenCollectables");
+        for (int i = 0; i < hiddenCollectables.transform.childCount; i++)
+        {
+            hiddenCollectables.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        StartCoroutine(DespawnObjects(hiddenCollectables, TimeToDespawn));
+    }
+    private IEnumerator DespawnObjects(GameObject collectables,float TimeToDespawn)
+    {
+        yield return new WaitForSeconds(TimeToDespawn);
+        for(int i = 0; i < collectables.transform.childCount; i++)
+        {
+            collectables.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
     private void OnDestroy()
