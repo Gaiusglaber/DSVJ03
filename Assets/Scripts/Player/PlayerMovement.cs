@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed = 180;
     [SerializeField] private float _walkSpeed;
-    [SerializeField] private float _runSpeed;
     [SerializeField] private float _slideSpeed;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private float _groundCheckDistance;
@@ -183,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
         _moveDirection = slopedirection * -slideSpeed;
         _moveDirection.y = _moveDirection.y - _slopeHit.point.y;
-
+    
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
