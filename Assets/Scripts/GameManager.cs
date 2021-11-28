@@ -78,13 +78,13 @@ public class GameManager : MonoBehaviour
                     {
                         continue;
                     }
-                    PlayerPrefs.SetInt("A", cantCollectableA);
-                    PlayerPrefs.SetInt("B", cantCollectableB);
-                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = cantCollectableA.ToString();
+                    PlayerPrefs.SetInt("A", levels[i].CollectableA);
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[i].CollectableA.ToString();
                 }
                 if (level.transform.GetChild(i).CompareTag("CollectableBText") && completed)
                 {
-                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = cantCollectableA.ToString();
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[i].CollectableB.ToString();
+                    PlayerPrefs.SetInt("A", levels[i].CollectableB);
                 }
             }
         }
