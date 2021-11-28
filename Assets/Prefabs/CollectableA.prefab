@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2273151064946268664}
   m_Layer: 0
   m_Name: CollectableA
-  m_TagString: CollectableB
+  m_TagString: CollectableA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

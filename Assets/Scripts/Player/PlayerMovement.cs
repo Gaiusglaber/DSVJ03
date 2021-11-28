@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             OnPause?.Invoke();
             pause = true;
         }
-        if (Input.GetKeyDown(KeyCode.E)&&canTalkToNPC&&!triggerEvent)
+        if (Input.GetKeyDown(KeyCode.E) && canTalkToNPC && !triggerEvent) 
         {
             OnTalkingToNpc?.Invoke(TimeToDespawnCollectables);
             triggerEvent = true;
