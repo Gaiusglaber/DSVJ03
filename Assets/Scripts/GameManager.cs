@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     }
     public void TransitionToNewScene(int index)
     {
-
         if (Fade.faded)
         {
             Fade.faded = false;
