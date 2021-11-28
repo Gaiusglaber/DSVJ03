@@ -173,8 +173,8 @@ public class Plataform : MonoBehaviour
     }
     IEnumerator PlataformStartBreak(Vector3 initialPos)
     {
-        GetComponent<Animator>().SetTrigger("Break");
         yield return new WaitForSeconds(timeToBreak);
+        GetComponent<Animator>().SetTrigger("Break");
         Destroy(gameObject);
     }
 }

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0c2432ff3cbe0aa41aeede6bd9fe16b7,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -417,13 +417,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00dbd1b9a6dace4099bdcc3f97003fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantlvls: 0
+  levels: []
   player: {fileID: 0}
+  scoreManager: {fileID: 0}
   completed: 0
   win: 0
   gameOver: 0
   pause: 0
   HighScore: 0
-  level: 1
+  indexlevel: 0
 --- !u!4 &633506245
 Transform:
   m_ObjectHideFlags: 0
@@ -621,7 +624,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 877411306}
+      objectReference: {fileID: 0}
     - target: {fileID: 6049884857603598808, guid: 4dd22496b2c23d946906c84d7b868148,
         type: 3}
       propertyPath: DistanceUp
@@ -768,12 +771,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331208e2df6d24e42a5c83735e505543, type: 3}
---- !u!4 &877411306 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 365876604556052928, guid: 331208e2df6d24e42a5c83735e505543,
-    type: 3}
-  m_PrefabInstance: {fileID: 877411305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893026925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &2088821363
 PrefabInstance:
@@ -1581,5 +1578,20 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1116017106}
+    - target: {fileID: 7368656724543044842, guid: e7916b59efbc1ec4ea7fffad84c0f322,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8400002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368656724543044842, guid: e7916b59efbc1ec4ea7fffad84c0f322,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8151853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368656724543044842, guid: e7916b59efbc1ec4ea7fffad84c0f322,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8199998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7916b59efbc1ec4ea7fffad84c0f322, type: 3}
