@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
                 if (level.transform.GetChild(i).CompareTag("CollectableBText") && completed)
                 {
                     level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[i].CollectableB.ToString();
-                    PlayerPrefs.SetInt("A", levels[i].CollectableB);
+                    PlayerPrefs.SetInt("B", levels[i].CollectableB);
                 }
             }
         }
