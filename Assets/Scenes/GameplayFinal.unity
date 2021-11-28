@@ -4492,8 +4492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00dbd1b9a6dace4099bdcc3f97003fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cantlvls: 0
-  levels: []
+  cantlvls: 1
+  levels:
+  - CollectableA: 0
+    CollectableB: 0
   player: {fileID: 0}
   scoreManager: {fileID: 0}
   completed: 0
@@ -6077,61 +6079,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 531274749}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &545824882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 545824884}
-  - component: {fileID: 545824883}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &545824883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545824882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e00dbd1b9a6dace4099bdcc3f97003fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cantlvls: 1
-  levels:
-  - CollectableA: 0
-    CollectableB: 0
-  player: {fileID: 0}
-  scoreManager: {fileID: 0}
-  completed: 0
-  win: 0
-  gameOver: 0
-  pause: 0
-  HighScore: 0
-  indexlevel: 0
---- !u!4 &545824884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545824882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.859528, y: -58.57084, z: 205.82138}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &562111039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65243,7 +65190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postProcessProfile: {fileID: 5727266039253726239}
-  player: {fileID: 0}
+  player: {fileID: 365876604178808774}
   amountOfBlur: 0
   speedLerper: 2
 --- !u!4 &5727266039253726238

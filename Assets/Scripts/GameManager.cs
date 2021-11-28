@@ -13,11 +13,16 @@ public class Level
 }
 public class GameManager : MonoBehaviour
 {
-    public int cantlvls = 0;
+    [SerializeField]private int cantlvls = 0;
     public Level[] levels;
     public PlayerMovement player;
     public ScoreManager scoreManager;
     public bool completed;
+    public bool win;
+    public bool gameOver = false;
+    public bool pause = false;
+    public int HighScore;
+    public int indexlevel = 0;
     #region SINGLETON
     static private GameManager instance;
     static public GameManager GetInstance() { return instance; }
@@ -34,11 +39,6 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-    public bool win;
-    public bool gameOver = false;
-    public bool pause = false;
-    public int HighScore;
-    public int indexlevel = 0;
     public void GameOver()
     {
             GameObject animatorScene = GameObject.FindGameObjectWithTag("SceneTransition");
@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
     void Start()
+    {
+        SceneManager.activeSceneChanged += InstantiateData;
+        InstantiateData(SceneManager.GetActiveScene(), SceneManager.GetActiveScene());
+    }
+    void InstantiateData(Scene scene1,Scene scene2)
     {
         scoreManager = FindObjectOfType<ScoreManager>();
         levels = new Level[cantlvls];

@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postProcessProfile: {fileID: 907273686}
-  player: {fileID: 0}
+  player: {fileID: 158811263}
   amountOfBlur: 0
   speedLerper: 2
 --- !u!114 &907273686
@@ -906,7 +906,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 158811263}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddcfd53cd99b0fd48a3029050c1ba5ce, type: 3}
 --- !u!224 &1104086308 stripped
