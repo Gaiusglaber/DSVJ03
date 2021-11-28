@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
+[Serializable]
+public class Level
+{
+    public int CollectableA = 0;
+    public int CollectableB = 0;
+}
 public class GameManager : MonoBehaviour
 {
+    public int cantlvls = 0;
+    public Level[] levels;
     public PlayerMovement player;
+    public ScoreManager scoreManager;
     public bool completed;
     #region SINGLETON
     static private GameManager instance;
@@ -28,7 +38,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     public bool pause = false;
     public int HighScore;
-    public int level = 1;
+    public int indexlevel = 0;
     public void GameOver()
     {
             GameObject animatorScene = GameObject.FindGameObjectWithTag("SceneTransition");
@@ -55,6 +65,29 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
+        levels = new Level[cantlvls];
+        GameObject level = GameObject.FindGameObjectWithTag("Level");
+        if (level)
+        {
+            for (short i = 0; i < level.transform.childCount; i++)
+            {
+                if (level.transform.GetChild(i).CompareTag("CollectableAText") && completed)
+                {
+                    if (level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text == "0")
+                    {
+                        continue;
+                    }
+                    PlayerPrefs.SetInt("A", cantCollectableA);
+                    PlayerPrefs.SetInt("B", cantCollectableB);
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = cantCollectableA.ToString();
+                }
+                if (level.transform.GetChild(i).CompareTag("CollectableBText") && completed)
+                {
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = cantCollectableA.ToString();
+                }
+            }
+        }
         GameObject aux = GameObject.FindGameObjectWithTag("Player");
         if (aux)
         {
@@ -99,6 +132,8 @@ public class GameManager : MonoBehaviour
     private void Suceed()
     {
         completed = true;
+        levels[indexlevel].CollectableA = scoreManager.collectableACant;
+        levels[indexlevel].CollectableB = scoreManager.collectableBCant;
         GoBackToHub();
     }
     public void GoBackToHub()

@@ -13,6 +13,9 @@ TagManager:
   - Enemy
   - Level1
   - HiddenCollectables
+  - CollectableAText
+  - CollectableBText
+  - Level
   layers:
   - Default
   - TransparentFX

@@ -353,13 +353,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00dbd1b9a6dace4099bdcc3f97003fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantlvls: 0
+  levels:
+  - CollectableA: 0
+    CollectableB: 0
   player: {fileID: 0}
-  completed: 0
+  scoreManager: {fileID: 0}
+  completed: 1
   win: 0
   gameOver: 0
   pause: 0
   HighScore: 0
-  level: 1
+  indexlevel: 1
+  cantCollectableA: 0
+  cantCollectableB: 0
 --- !u!4 &145639486
 Transform:
   m_ObjectHideFlags: 0

@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
-    private int collectableACant = 0;
-    private int collectableBCant = 0;
+    public int collectableACant = 0;
+    public int collectableBCant = 0;
     [SerializeField] private TMP_Text collectableAText;
     [SerializeField] private TMP_Text collectableBText;
     [SerializeField] private int maxWhiteCollectables = 0;
