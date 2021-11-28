@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [ExecuteInEditMode]
-[ExecuteAlways]
 public class CollectableHover : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundMask;
@@ -12,6 +9,10 @@ public class CollectableHover : MonoBehaviour
         if (Physics.CheckSphere(transform.position, 1, _groundMask))
         {
             transform.position += new Vector3(0, 1, 0);
+        }
+        else
+        {
+            transform.position -= new Vector3(0, 1, 0);
         }
     }
 }

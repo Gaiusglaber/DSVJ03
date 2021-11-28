@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-        if (!Physics.Raycast(_raycast.position, Vector3.down, 50))
+        if (!Physics.Raycast(_raycast.position, Vector3.down, 100))
         {
             OnPlayerDie?.Invoke();
         }
