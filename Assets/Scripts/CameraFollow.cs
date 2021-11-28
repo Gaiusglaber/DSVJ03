@@ -97,7 +97,6 @@ public class CameraFollow : MonoBehaviour,ILerpeable
     }
     void smoothCamMethod()
     {
-        smooth = 4f;
         transform.position = Vector3.Lerp(transform.position, camPosition, Time.deltaTime * smooth);
     }
     void occludeRay(ref Vector3 targetFollow)
