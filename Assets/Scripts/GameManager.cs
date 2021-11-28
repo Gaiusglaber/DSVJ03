@@ -70,7 +70,10 @@ public class GameManager : MonoBehaviour
     void InstantiateData(Scene scene1,Scene scene2)
     {
         scoreManager = FindObjectOfType<ScoreManager>();
-        levels = new Level[cantlvls];
+        if (levels == null)
+        {
+            levels = new Level[cantlvls];
+        }
         GameObject level = GameObject.FindGameObjectWithTag("Level");
         if (level)
         {
@@ -82,13 +85,19 @@ public class GameManager : MonoBehaviour
                     {
                         continue;
                     }
-                    PlayerPrefs.SetInt("A", levels[i].CollectableA);
-                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[i].CollectableA.ToString();
+                    if (PlayerPrefs.GetInt("A") < levels[indexlevel].CollectableA)
+                    {
+                        PlayerPrefs.SetInt("A", levels[indexlevel].CollectableA);
+                    }
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[indexlevel].CollectableA.ToString();
                 }
                 if (level.transform.GetChild(i).CompareTag("CollectableBText") && completed)
                 {
-                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[i].CollectableB.ToString();
-                    PlayerPrefs.SetInt("B", levels[i].CollectableB);
+                    if (PlayerPrefs.GetInt("B") < levels[indexlevel].CollectableB)
+                    {
+                        PlayerPrefs.SetInt("B", levels[indexlevel].CollectableB);
+                    }
+                    level.transform.GetChild(i).GetComponent<TMPro.TMP_Text>().text = levels[indexlevel].CollectableB.ToString();
                 }
             }
         }

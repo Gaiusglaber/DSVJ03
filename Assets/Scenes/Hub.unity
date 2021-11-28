@@ -475,59 +475,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 158811262}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &633506243
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 633506245}
-  - component: {fileID: 633506244}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &633506244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633506243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e00dbd1b9a6dace4099bdcc3f97003fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cantlvls: 0
-  levels: []
-  player: {fileID: 0}
-  scoreManager: {fileID: 0}
-  completed: 0
-  win: 0
-  gameOver: 0
-  pause: 0
-  HighScore: 0
-  indexlevel: 0
---- !u!4 &633506245
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633506243}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8205183, y: 3.3019612, z: 0.4364624}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664819772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1470,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 4451475663048900864, guid: e7916b59efbc1ec4ea7fffad84c0f322,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4451475663048900867, guid: e7916b59efbc1ec4ea7fffad84c0f322,
         type: 3}
       propertyPath: m_RootOrder
@@ -1587,6 +1539,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451475663730660740, guid: e7916b59efbc1ec4ea7fffad84c0f322,
+        type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 7368656724543044842, guid: e7916b59efbc1ec4ea7fffad84c0f322,
         type: 3}

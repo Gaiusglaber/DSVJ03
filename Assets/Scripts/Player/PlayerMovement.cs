@@ -82,9 +82,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-        if (!Physics.Raycast(_raycast.position, Vector3.down, 100))
+        Collider[] colliders = Physics.OverlapSphere(_raycast.position, 100, _groundMask);
+        if (colliders.Length<=0)
         {
             OnPlayerDie?.Invoke();
+        }
+        if (!Physics.Raycast(_raycast.position, Vector3.down, 100))
+        {
+            
         }
     }
     void Update()
