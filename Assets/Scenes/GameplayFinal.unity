@@ -53469,12 +53469,13 @@ MonoBehaviour:
   followTransform: {fileID: 365876603172287526}
   smoothTime: 0.3
   materialToDmg:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f19ef9a2fc54abe4aad1686db87eaa3c, type: 2}
+  - {fileID: 2100000, guid: ae0450ece635fa5428d17818c3d5fb54, type: 2}
+  - {fileID: 2100000, guid: 8351db2ee2ddf424e9b0accc4f937a28, type: 2}
   meshHover: {fileID: 8596143894027829776}
   colorChangingSpeed: 2
   secondsToHeal: 2
+  YOffset: 1
   life: 2
   paused: 0
 --- !u!1 &4893521616744077282

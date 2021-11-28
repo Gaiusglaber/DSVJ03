@@ -15,6 +15,7 @@ public class Hover : MonoBehaviour
     [SerializeField] private MeshRenderer meshHover;
     [SerializeField]private float colorChangingSpeed = 0;
     [SerializeField] private float secondsToHeal = 0;
+    [SerializeField] private float YOffset = 0;
     [SerializeField] private int life = 2;
     private bool light = false;
     public bool paused = false;
@@ -82,7 +83,7 @@ public class Hover : MonoBehaviour
     }
     void FollowPlayer()
     {
-        Vector3 playerPos = new Vector3(followTransform.position.x - 2, followTransform.position.y + 2,
+        Vector3 playerPos = new Vector3(followTransform.position.x - 2, followTransform.position.y + YOffset,
             followTransform.position.z - 2);
         transform.position = Vector3.SmoothDamp(transform.position, playerPos, ref velocity, smoothTime);
         transform.forward = Vector3.SmoothDamp(transform.forward, followTransform.forward, ref velocity, smoothTime);
