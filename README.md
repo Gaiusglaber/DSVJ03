@@ -2,9 +2,14 @@
 <img src="logo.png" alt="PONER NOMBRE DEL JUEGO ACA"/>
 </p>
 
-# PONER NOMBRE DEL JUEGO ACA
+The Project Preservation
 
-PONER LA DESCRIPCION LARGA DEL JUEGO ACA.
+Help Rem & Presley to complete the goals of the simulated areas: 
+
+Collect as many data cubes you can find.
+Complete each world.
+Complete challenges of the local people.
+Find out the secrets of “The Ark” , a spaceship of unknown origin.
 
 This is a game being developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
@@ -17,13 +22,13 @@ This is a game being developed by students from <a href="https://www.imagecampus
 
 ## Credits
 
-- **Nombre Apellido** - *Programming*
-- **Nombre Apellido** - *Programming*
-- **Nombre Apellido** - *Art*
-- **Nombre Apellido** - *Art*
-- **Nombre Apellido** - *Audio*
-- **Nombre Apellido** - *Audio*
-- **Nombre Apellido** - *Testing*
+- **Lucas Rodriguez Roge** - *Programming*
+- **Juan Rodriguez Giles** - *Programming*
+- **Andres Pluda** - *Art*
+- **Walter Sanchez** - *Art*
+- **Juan Albertsen** - *Audio*
+- **Paula Miranda** - *Audio*
+- **Juan Fraga** - *Testing*
 - **Nombre Apellido** - *Testing*
 
 
@@ -37,11 +42,7 @@ This game was also possible thanks to the support of these professors:
 - **Eugenio Taboada**
 
 
-## Acknowledgements
-
-Otras personas a las que quieran agradecerles, sino sacar este título
-
 
 ## Links
 
-Download it from itch.io: PONER LINK AL JUEGO DE ITCH ACA
+Download it from itch.io: https://gaiusglaber.itch.io/the-project-preservation
