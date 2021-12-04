@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
     private void UnTriggerFlag()
     {
         triggerEvent = false;
-        talkingNpc.SetActive(false);
     }
     private void CheckKeyboardInput()
     {

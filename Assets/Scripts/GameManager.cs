@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
         {
             collectables.transform.GetChild(i).gameObject.SetActive(false);
         }
+        NPC npc = FindObjectOfType<NPC>();
+        npc.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {

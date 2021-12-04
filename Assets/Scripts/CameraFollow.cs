@@ -132,16 +132,6 @@ public class CameraFollow : MonoBehaviour,ILerpeable
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(secondsToWait);
-        rotLerper.SetValues(transform.eulerAngles, initialRot, rotLerperSpeed, true);
-        posLerper.SetValues(transform.position, initialPos, posLerperSpeed, true);//srry fede lo se :´c
-        while (rotLerper.On && posLerper.On)
-        {
-            rotLerper.Update();
-            posLerper.Update();
-            transform.position = posLerper.CurrentValue;
-            transform.eulerAngles = rotLerper.CurrentValue;
-            yield return new WaitForEndOfFrame();
-        }
         OnExitEvent?.Invoke();
         lerping = false;
     }
