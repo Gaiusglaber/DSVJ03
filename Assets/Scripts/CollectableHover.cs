@@ -8,11 +8,11 @@ public class CollectableHover : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, 1, _groundMask))
         {
-            transform.position += new Vector3(0, 1, 0);
+            transform.position += new Vector3(0, 0.5f, 0);
         }
         else
         {
-            transform.position -= new Vector3(0, 1, 0);
+            transform.position -= new Vector3(0, 0.5f, 0);
         }
     }
 }
