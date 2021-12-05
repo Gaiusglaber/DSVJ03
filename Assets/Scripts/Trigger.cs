@@ -11,6 +11,7 @@ public class Trigger : MonoBehaviour
 
     public event Action OnPlayerHitLever = null;
     private bool isNear = false;
+    private bool isTriggered = false;
     private Vector3Lerper leverRotLerper = null;
     private void Start()
     {
@@ -29,8 +30,9 @@ public class Trigger : MonoBehaviour
     }
     private void Update()
     {
-        if (isNear&&Input.GetKeyDown(KeyCode.E))
+        if (isNear&&Input.GetKeyDown(KeyCode.E)&&!isTriggered)
         {
+            isTriggered = true;
             OnPlayerHitLever?.Invoke();
             StartCoroutine(RotateLever());
         }

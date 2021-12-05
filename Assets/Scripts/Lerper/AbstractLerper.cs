@@ -54,7 +54,7 @@ namespace Numetry.Tools.Lerper
                 return;
             }
 
-            currentLerpTime += Time.deltaTime;
+            currentLerpTime += Time.unscaledDeltaTime;
             if (currentLerpTime > lerpTime)
             {
                 currentLerpTime = lerpTime;

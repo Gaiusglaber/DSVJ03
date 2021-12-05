@@ -26,10 +26,12 @@ public class PausePanel : MonoBehaviour,ILerpeable
     private void ShowPanel()
     {
         StartCoroutine(Lerp(initialXPos, destXPos, lerperSpeed));
+        Time.timeScale = 0;
     }
     private void HidePanel()
     {
         StartCoroutine(Lerp(destXPos, initialXPos, lerperSpeed));
+        Time.timeScale = 1;
     }
     public IEnumerator Lerp(float firstPos, float endPos, float speed)
     {
