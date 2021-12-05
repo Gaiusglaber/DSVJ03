@@ -136,10 +136,10 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetFloat("Speed", 1);
         }
 
-        if (Input.GetKey(KeyCode.Space) && _jumpCounter <= 2)
+        if (Input.GetKeyDown(KeyCode.Space) && _jumpCounter < 1)
         {
-            AkSoundEngine.PostEvent("jump", gameObject);
             _jumpCounter++;
+            AkSoundEngine.PostEvent("jump", gameObject);
             if (_jumpCounter == 2) 
             {
                 doubleJump = true;
