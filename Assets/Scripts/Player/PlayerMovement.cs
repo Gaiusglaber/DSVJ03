@@ -63,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
         {
             OnTurnOnLantern?.Invoke();
         }
-        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Pause)) && !pause&&!triggerEvent)
+        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Pause)) && !pause && !triggerEvent)
         {
             OnPause?.Invoke();
             pause = true;
         }
-        if (Input.GetKeyDown(KeyCode.E) && canTalkToNPC && !triggerEvent) 
+        if (Input.GetKeyDown(KeyCode.E) && canTalkToNPC && !triggerEvent)
         {
             OnTalkingToNpc?.Invoke(TimeToDespawnCollectables);
             triggerEvent = true;
@@ -77,30 +77,25 @@ public class PlayerMovement : MonoBehaviour
         {
             SteepSlopeMovement();
         }
-        else
-        {
-            Move();
-        }
-        Collider[] colliders = Physics.OverlapSphere(_raycast.position, 100, _groundMask);
-        if (colliders.Length<=0)
-        {
-            OnPlayerDie?.Invoke();
-        }
-        if (!Physics.Raycast(_raycast.position, Vector3.down, 100))
-        {
-            
-        }
+
+        Move();
     }
     void Update()
     {
         CheckKeyboardInput();
+
+        Collider[] colliders = Physics.OverlapSphere(_raycast.position, 100, _groundMask);
+        if (colliders.Length <= 0)
+        {
+            OnPlayerDie?.Invoke();
+        }
     }
     public void Teleport()
     {
         Vector3 teleportPosition = new Vector3(float.Parse(InputX.text.ToString()), float.Parse(InputY.text.ToString()), float.Parse(InputZ.text.ToString()));
         transform.position = teleportPosition;
     }
-    private void TalkToNPC(bool canTalkToNPC,GameObject NPC)
+    private void TalkToNPC(bool canTalkToNPC, GameObject NPC)
     {
         this.canTalkToNPC = canTalkToNPC;
         if (canTalkToNPC)
@@ -126,6 +121,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float moveZ = Input.GetAxis("Vertical");
+        if (OnSteepSlope())
+        {
+            moveZ = 1;
+        }
         _rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
         _moveDirection = new Vector3(0, 0, moveZ);
         _moveDirection = transform.TransformDirection(_moveDirection);
@@ -140,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _jumpCounter++;
             AkSoundEngine.PostEvent("jump", gameObject);
-            if (_jumpCounter == 2) 
+            if (_jumpCounter == 2)
             {
                 doubleJump = true;
             }
@@ -176,9 +175,9 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetTrigger("OnJumpUp");
         _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
 
-        while (_velocity.y >= 0) 
+        while (_velocity.y >= 0)
         {
-            if (doubleJump) 
+            if (doubleJump)
             {
                 _velocity.y += Mathf.Sqrt(_jumpHeight * -2 * _gravity);
                 doubleJump = false;
@@ -218,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
 
         _moveDirection = slopedirection * -slideSpeed;
         _moveDirection.y = _moveDirection.y - _slopeHit.point.y;
-    
+
         _controller.Move(_moveDirection * Time.deltaTime);
         _controller.Move(Vector3.down * _controller.height / 2 * _slopeForce * Time.deltaTime);
     }
