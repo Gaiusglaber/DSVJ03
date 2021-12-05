@@ -108,8 +108,42 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 73aa5a932d47524bb8f51bbb14ddef03
     GuidInternal: 
-    m_lastTime: -8585639878483248494
+    m_lastTime: -8585628905262649250
     List:
+    - name: button_hover
+      guid: 03dd4604a6320f488ad57cf12d91899c
+      id: 1701177942
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 73aa5a932d47524bb8f51bbb14ddef03
+      - ElementName: button_hover
+        ObjectType: 3
+        guid: 03dd4604a6320f488ad57cf12d91899c
+      Path: Events\Default Work Unit\button_hover
+      maxAttenuation: 0
+      maxDuration: 0.58254
+      minDuration: 0.58254
+    - name: button_select
+      guid: 4516a3a4bac4794a91b2ae8812aa6176
+      id: 1135171848
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 73aa5a932d47524bb8f51bbb14ddef03
+      - ElementName: button_select
+        ObjectType: 3
+        guid: 4516a3a4bac4794a91b2ae8812aa6176
+      Path: Events\Default Work Unit\button_select
+      maxAttenuation: 0
+      maxDuration: 0.93195
+      minDuration: 0.93195
     - name: collect_item
       guid: 06e9d92ee021344f8f70866ea3ffc53e
       id: 3868165313
@@ -125,8 +159,8 @@ MonoBehaviour:
         guid: 06e9d92ee021344f8f70866ea3ffc53e
       Path: Events\Default Work Unit\collect_item
       maxAttenuation: 0
-      maxDuration: 0.614035
-      minDuration: 0.434188
+      maxDuration: 0.500091
+      minDuration: 0.383673
     - name: collect_special
       guid: 6af663906482b44587d5c08866969a41
       id: 2290876741
@@ -161,6 +195,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: exit_menu
+      guid: a0422bd0e97d3140b87ee12f3f8aaabf
+      id: 1690420221
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 73aa5a932d47524bb8f51bbb14ddef03
+      - ElementName: exit_menu
+        ObjectType: 3
+        guid: a0422bd0e97d3140b87ee12f3f8aaabf
+      Path: Events\Default Work Unit\exit_menu
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: jump
       guid: 96584d6756624340b8e14ec084f4bd29
       id: 3833651337
@@ -195,6 +246,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.820023
       minDuration: 2.110408
+    - name: music_menu_play
+      guid: a5cdaf0d0bd1eb4da157fb443590789e
+      id: 2013246097
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 73aa5a932d47524bb8f51bbb14ddef03
+      - ElementName: music_menu_play
+        ObjectType: 3
+        guid: a5cdaf0d0bd1eb4da157fb443590789e
+      Path: Events\Default Work Unit\music_menu_play
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: play_ambient
       guid: 681c26baa2e6024099e0c904370eefdb
       id: 1562304622
@@ -229,6 +297,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: player_death
+      guid: 3e85b8d1a84be945b416a9c756974abd
+      id: 3083087645
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 73aa5a932d47524bb8f51bbb14ddef03
+      - ElementName: player_death
+        ObjectType: 3
+        guid: 3e85b8d1a84be945b416a9c756974abd
+      Path: Events\Default Work Unit\player_death
+      maxAttenuation: 0
+      maxDuration: 5.160417
+      minDuration: 2.596236
     - name: spikes
       guid: 9e61816fd544014abd8c6c2c9d700695
       id: 747415224
@@ -275,7 +360,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e9f4bf2ff75f914ca991901d255d4ca1
     GuidInternal: 
-    m_lastTime: -8585639878483238572
+    m_lastTime: -8585628905262579814
     List:
     - name: Distancia
       guid: 7a42c6a2b0aa5e478ef634cbfd936b6c
@@ -291,6 +376,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7a42c6a2b0aa5e478ef634cbfd936b6c
       Path: Game Parameters\Default Work Unit\Distancia
+    - name: steps_velocidad
+      guid: dbe2c48ebf5f4e49bce5ce456b5f17b3
+      id: 3749477188
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e9f4bf2ff75f914ca991901d255d4ca1
+      - ElementName: steps_velocidad
+        ObjectType: 13
+        guid: dbe2c48ebf5f4e49bce5ce456b5f17b3
+      Path: Game Parameters\Default Work Unit\steps_velocidad
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -317,7 +416,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 7fd0394284354b4f80150844e7778181
     GuidInternal: 
-    m_lastTime: -8585639878453394106
+    m_lastTime: -8585628905247036542
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -333,9 +432,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585639878453384296
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedFileSystemItemIds: 0200000003000000
+  ExpandedWaapiItemIds: 0200000003000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

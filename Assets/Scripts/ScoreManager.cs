@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         {
             AkSoundEngine.PostEvent("collect_special", gameObject);
             collectableBCant++;
-            collectableBText.text = collectableBCant.ToString() + " / " + maxWhiteCollectables;
+            collectableBText.text = collectableBCant.ToString();
         }
     }
 }

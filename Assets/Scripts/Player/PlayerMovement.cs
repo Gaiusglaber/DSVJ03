@@ -138,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && _jumpCounter <= 2)
         {
+            AkSoundEngine.PostEvent("jump", gameObject);
             _jumpCounter++;
             if (_jumpCounter == 2) 
             {

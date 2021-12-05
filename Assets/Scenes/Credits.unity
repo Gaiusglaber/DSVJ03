@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 6909944422472733448, guid: e2f40f884af324342a415924be56e188,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6909944422472733448, guid: e2f40f884af324342a415924be56e188,
         type: 3}
@@ -483,6 +483,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657260867}
   m_CullTransparentMesh: 0
+--- !u!1 &859832684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859832685}
+  - component: {fileID: 859832687}
+  - component: {fileID: 859832686}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &859832685
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859832684}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.2066934, y: 2.0046105, z: 3}
+  m_Children: []
+  m_Father: {fileID: 2041990762}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 422, y: -1}
+  m_SizeDelta: {x: 654.87115, y: 384.07132}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &859832686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859832684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'juan cruz mendez
+
+    ivo bouza'
+--- !u!222 &859832687
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859832684}
+  m_CullTransparentMesh: 0
 --- !u!1 &1143221712
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,10 +755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -977,15 +1057,14 @@ RectTransform:
   m_GameObject: {fileID: 2000669668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 4, z: 3}
-  m_Children:
-  - {fileID: 2107609295}
+  m_LocalScale: {x: 11.043, y: 10.130434, z: 3}
+  m_Children: []
   m_Father: {fileID: 2041990762}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 699, y: 331}
+  m_AnchoredPosition: {x: -368, y: 93}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000669670
@@ -1001,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1056,6 +1135,8 @@ RectTransform:
   - {fileID: 657260868}
   - {fileID: 471970688}
   - {fileID: 2000669669}
+  - {fileID: 2107609295}
+  - {fileID: 859832685}
   - {fileID: 315578637}
   m_Father: {fileID: 1383466821}
   m_RootOrder: 0
@@ -1105,15 +1186,15 @@ RectTransform:
   m_GameObject: {fileID: 2107609294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36778224, y: 0.50115263, z: 1}
+  m_LocalScale: {x: 2.2066934, y: 2.0046105, z: 3}
   m_Children: []
-  m_Father: {fileID: 2000669669}
-  m_RootOrder: 0
+  m_Father: {fileID: 2041990762}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.364834, y: -24.556496}
-  m_SizeDelta: {x: 418, y: 243.4}
+  m_AnchoredPosition: {x: -127.2, y: -1}
+  m_SizeDelta: {x: 654.87115, y: 384.07132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107609296
 MonoBehaviour:
@@ -1153,12 +1234,35 @@ MonoBehaviour:
 
     Juan rodriguez giles
 
+
     Artist:
 
     Andres
     pluda
 
     walter sanchez
+
+
+    Sound:
+
+    juan albertsen
+
+    paula miranda
+
+
+    QA:
+
+    Juan
+    fraga
+
+    jazmin franchi
+
+    hernan diaz
+
+    juan cruz mendez
+
+    ivo bouza
+
 
 
 '

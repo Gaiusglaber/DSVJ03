@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     private bool pressed;
     private void Start()
     {
-        
+        versionTxt.text = Application.version;
     }
     void Update()
     {

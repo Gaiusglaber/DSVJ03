@@ -1,31 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>/Users/MpMiranda/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/Preservation/</ProjectRoot>
+		<SourceFilesRoot>/Users/MpMiranda/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/Preservation/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/MpMiranda/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/Preservation/GeneratedSoundBanks/Mac/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Users/MpMiranda/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/Preservation/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2430483921">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1742691856">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2047095285">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2550593175">
 			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3868165313" Name="collect_item" ObjectPath="\Events\Default Work Unit\collect_item" DurationType="OneShot" DurationMin="0.434188" DurationMax="0.614035">
+				<Event Id="1701177942" Name="button_hover" ObjectPath="\Events\Default Work Unit\button_hover" DurationType="OneShot" DurationMin="0.582540" DurationMax="0.582540">
 					<IncludedMemoryFiles>
-						<File Id="429520276" Language="SFX">
-							<ShortName>SFX_CollectItem.wav</ShortName>
-							<Path>SFX\SFX_CollectItem_AD53A999.wem</Path>
+						<File Id="257097975" Language="SFX">
+							<ShortName>button_1.wav</ShortName>
+							<Path>SFX/button_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1135171848" Name="button_select" ObjectPath="\Events\Default Work Unit\button_select" DurationType="OneShot" DurationMin="0.931950" DurationMax="0.931950">
+					<IncludedMemoryFiles>
+						<File Id="789127350" Language="SFX">
+							<ShortName>boton_planeta1.wav</ShortName>
+							<Path>SFX/boton_planeta1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3868165313" Name="collect_item" ObjectPath="\Events\Default Work Unit\collect_item" DurationType="OneShot" DurationMin="0.383673" DurationMax="0.500091">
+					<IncludedMemoryFiles>
+						<File Id="4427259" Language="SFX">
+							<ShortName>Collect\collect04.wav</ShortName>
+							<Path>SFX/Collect/collect04_10C4C929.wem</Path>
+						</File>
+						<File Id="100572378" Language="SFX">
+							<ShortName>Collect\collect02.wav</ShortName>
+							<Path>SFX/Collect/collect02_10C4C929.wem</Path>
+						</File>
+						<File Id="266060968" Language="SFX">
+							<ShortName>Collect\collect07.wav</ShortName>
+							<Path>SFX/Collect/collect07_10C4C929.wem</Path>
+						</File>
+						<File Id="377327609" Language="SFX">
+							<ShortName>Collect\collect01.wav</ShortName>
+							<Path>SFX/Collect/collect01_10C4C929.wem</Path>
+						</File>
+						<File Id="462483467" Language="SFX">
+							<ShortName>Collect\collect12.wav</ShortName>
+							<Path>SFX/Collect/collect12_10C4C929.wem</Path>
+						</File>
+						<File Id="507976738" Language="SFX">
+							<ShortName>Collect\collect05.wav</ShortName>
+							<Path>SFX/Collect/collect05_10C4C929.wem</Path>
+						</File>
+						<File Id="517650223" Language="SFX">
+							<ShortName>Collect\collect11.wav</ShortName>
+							<Path>SFX/Collect/collect11_10C4C929.wem</Path>
+						</File>
+						<File Id="535905349" Language="SFX">
+							<ShortName>Collect\collect03.wav</ShortName>
+							<Path>SFX/Collect/collect03_10C4C929.wem</Path>
+						</File>
+						<File Id="717062850" Language="SFX">
+							<ShortName>Collect\collect10.wav</ShortName>
+							<Path>SFX/Collect/collect10_10C4C929.wem</Path>
+						</File>
+						<File Id="751404511" Language="SFX">
+							<ShortName>Collect\collect08.wav</ShortName>
+							<Path>SFX/Collect/collect08_10C4C929.wem</Path>
+						</File>
+						<File Id="807267292" Language="SFX">
+							<ShortName>Collect\collect06.wav</ShortName>
+							<Path>SFX/Collect/collect06_10C4C929.wem</Path>
+						</File>
+						<File Id="965521990" Language="SFX">
+							<ShortName>Collect\collect09.wav</ShortName>
+							<Path>SFX/Collect/collect09_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -33,7 +93,7 @@
 					<IncludedMemoryFiles>
 						<File Id="691438173" Language="SFX">
 							<ShortName>SFX_collect_special.wav</ShortName>
-							<Path>SFX\SFX_collect_special_436F66A1.wem</Path>
+							<Path>SFX/SFX_collect_special_436F66A1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -41,23 +101,24 @@
 					<IncludedMemoryFiles>
 						<File Id="444522564" Language="SFX">
 							<ShortName>enemy.wav</ShortName>
-							<Path>SFX\enemy_10C4C929.wem</Path>
+							<Path>SFX/enemy_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1690420221" Name="exit_menu" ObjectPath="\Events\Default Work Unit\exit_menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3833651337" Name="jump" ObjectPath="\Events\Default Work Unit\jump" DurationType="OneShot" DurationMin="1.441655" DurationMax="1.827075">
 					<IncludedMemoryFiles>
 						<File Id="449504396" Language="SFX">
 							<ShortName>SFX_Jump3.wav</ShortName>
-							<Path>SFX\SFX_Jump3_10C4C929.wem</Path>
+							<Path>SFX/SFX_Jump3_10C4C929.wem</Path>
 						</File>
 						<File Id="770163940" Language="SFX">
 							<ShortName>SFX_Jump1.wav</ShortName>
-							<Path>SFX\SFX_Jump1_10C4C929.wem</Path>
+							<Path>SFX/SFX_Jump1_10C4C929.wem</Path>
 						</File>
 						<File Id="1017524383" Language="SFX">
 							<ShortName>SFX_Jump2.wav</ShortName>
-							<Path>SFX\SFX_Jump2_10C4C929.wem</Path>
+							<Path>SFX/SFX_Jump2_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -65,11 +126,19 @@
 					<IncludedMemoryFiles>
 						<File Id="579154707" Language="SFX">
 							<ShortName>SFX_LightOff.wav</ShortName>
-							<Path>SFX\SFX_LightOff_10C4C929.wem</Path>
+							<Path>SFX/SFX_LightOff_10C4C929.wem</Path>
 						</File>
 						<File Id="918173583" Language="SFX">
 							<ShortName>SFX_LightOn.wav</ShortName>
-							<Path>SFX\SFX_LightOn_10C4C929.wem</Path>
+							<Path>SFX/SFX_LightOn_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2013246097" Name="music_menu_play" ObjectPath="\Events\Default Work Unit\music_menu_play" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="340723277" Language="SFX">
+							<ShortName>main_menu PRESERVATION_84pbm.wav</ShortName>
+							<Path>SFX/main_menu PRESERVATION_84pbm_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -77,27 +146,27 @@
 					<IncludedMemoryFiles>
 						<File Id="69101487" Language="SFX">
 							<ShortName>pajaro_2_120bpm.wav</ShortName>
-							<Path>SFX\pajaro_2_120bpm_10C4C929.wem</Path>
+							<Path>SFX/pajaro_2_120bpm_10C4C929.wem</Path>
 						</File>
 						<File Id="87939959" Language="SFX">
 							<ShortName>pajaro_lejano_69.91bpm.wav</ShortName>
-							<Path>SFX\pajaro_lejano_69.91bpm_10C4C929.wem</Path>
+							<Path>SFX/pajaro_lejano_69.91bpm_10C4C929.wem</Path>
 						</File>
 						<File Id="160891480" Language="SFX">
 							<ShortName>wind_120bpm.wav</ShortName>
-							<Path>SFX\wind_120bpm_13CC5CAA.wem</Path>
+							<Path>SFX/wind_120bpm_13CC5CAA.wem</Path>
 						</File>
 						<File Id="881712007" Language="SFX">
 							<ShortName>wind_120bpm.wav</ShortName>
-							<Path>SFX\wind_120bpm_BE268F36.wem</Path>
+							<Path>SFX/wind_120bpm_BE268F36.wem</Path>
 						</File>
 						<File Id="993192625" Language="SFX">
 							<ShortName>pajaro_1_120bpm.wav</ShortName>
-							<Path>SFX\pajaro_1_120bpm_10C4C929.wem</Path>
+							<Path>SFX/pajaro_1_120bpm_10C4C929.wem</Path>
 						</File>
 						<File Id="1045311171" Language="SFX">
 							<ShortName>wind_120bpm.wav</ShortName>
-							<Path>SFX\wind_120bpm_A1528CFB.wem</Path>
+							<Path>SFX/wind_120bpm_A1528CFB.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -105,87 +174,99 @@
 					<IncludedMemoryFiles>
 						<File Id="50122717" Language="SFX">
 							<ShortName>Music Peru\flauta03.wav</ShortName>
-							<Path>SFX\Music Peru\flauta03_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta03_D79FB2B7.wem</Path>
 						</File>
 						<File Id="100935755" Language="SFX">
 							<ShortName>Music Peru\notas03.wav</ShortName>
-							<Path>SFX\Music Peru\notas03_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/notas03_D79FB2B7.wem</Path>
 						</File>
 						<File Id="118893237" Language="SFX">
 							<ShortName>Music Peru\bajo01.wav</ShortName>
-							<Path>SFX\Music Peru\bajo01_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo01_D79FB2B7.wem</Path>
 						</File>
 						<File Id="158260033" Language="SFX">
 							<ShortName>Music Peru\cajon.wav</ShortName>
-							<Path>SFX\Music Peru\cajon_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/cajon_D79FB2B7.wem</Path>
 						</File>
 						<File Id="160241459" Language="SFX">
 							<ShortName>Music Peru\flauta05.wav</ShortName>
-							<Path>SFX\Music Peru\flauta05_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta05_D79FB2B7.wem</Path>
 						</File>
 						<File Id="234350900" Language="SFX">
 							<ShortName>Music Peru\notas04.wav</ShortName>
-							<Path>SFX\Music Peru\notas04_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/notas04_D79FB2B7.wem</Path>
 						</File>
 						<File Id="261344466" Language="SFX">
 							<ShortName>Music Peru\pad01.wav</ShortName>
-							<Path>SFX\Music Peru\pad01_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/pad01_D79FB2B7.wem</Path>
 						</File>
 						<File Id="377561176" Language="SFX">
 							<ShortName>Music Peru\flauta07.wav</ShortName>
-							<Path>SFX\Music Peru\flauta07_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta07_D79FB2B7.wem</Path>
 						</File>
 						<File Id="392681875" Language="SFX">
 							<ShortName>Music Peru\notas01.wav</ShortName>
-							<Path>SFX\Music Peru\notas01_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/notas01_D79FB2B7.wem</Path>
 						</File>
 						<File Id="394480189" Language="SFX">
 							<ShortName>Music Peru\flauta06.wav</ShortName>
-							<Path>SFX\Music Peru\flauta06_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta06_D79FB2B7.wem</Path>
 						</File>
 						<File Id="407033137" Language="SFX">
 							<ShortName>Music Peru\bajo02.wav</ShortName>
-							<Path>SFX\Music Peru\bajo02_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo02_D79FB2B7.wem</Path>
 						</File>
 						<File Id="445813008" Language="SFX">
 							<ShortName>Music Peru\bajo06.wav</ShortName>
-							<Path>SFX\Music Peru\bajo06_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo06_D79FB2B7.wem</Path>
 						</File>
 						<File Id="481684876" Language="SFX">
 							<ShortName>Music Peru\bajo03.wav</ShortName>
-							<Path>SFX\Music Peru\bajo03_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo03_D79FB2B7.wem</Path>
 						</File>
 						<File Id="660811282" Language="SFX">
 							<ShortName>Music Peru\notas02.wav</ShortName>
-							<Path>SFX\Music Peru\notas02_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/notas02_D79FB2B7.wem</Path>
 						</File>
 						<File Id="691303955" Language="SFX">
 							<ShortName>Music Peru\flauta04.wav</ShortName>
-							<Path>SFX\Music Peru\flauta04_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta04_D79FB2B7.wem</Path>
 						</File>
 						<File Id="780529489" Language="SFX">
 							<ShortName>Music Peru\flauta02.wav</ShortName>
-							<Path>SFX\Music Peru\flauta02_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta02_D79FB2B7.wem</Path>
 						</File>
 						<File Id="850473372" Language="SFX">
 							<ShortName>Music Peru\bajo04.wav</ShortName>
-							<Path>SFX\Music Peru\bajo04_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo04_D79FB2B7.wem</Path>
 						</File>
 						<File Id="886013751" Language="SFX">
 							<ShortName>swirls01.wav</ShortName>
-							<Path>SFX\swirls01_D79FB2B7.wem</Path>
+							<Path>SFX/swirls01_D79FB2B7.wem</Path>
 						</File>
 						<File Id="990781874" Language="SFX">
 							<ShortName>Music Peru\flauta08.wav</ShortName>
-							<Path>SFX\Music Peru\flauta08_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta08_D79FB2B7.wem</Path>
 						</File>
 						<File Id="1017548025" Language="SFX">
 							<ShortName>Music Peru\flauta01.wav</ShortName>
-							<Path>SFX\Music Peru\flauta01_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/flauta01_D79FB2B7.wem</Path>
 						</File>
 						<File Id="1028650602" Language="SFX">
 							<ShortName>Music Peru\bajo05.wav</ShortName>
-							<Path>SFX\Music Peru\bajo05_D79FB2B7.wem</Path>
+							<Path>SFX/Music Peru/bajo05_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3083087645" Name="player_death" ObjectPath="\Events\Default Work Unit\player_death" DurationType="OneShot" DurationMin="2.596236" DurationMax="5.160417">
+					<IncludedMemoryFiles>
+						<File Id="680198452" Language="SFX">
+							<ShortName>personaje_muere.wav</ShortName>
+							<Path>SFX/personaje_muere_10C4C929.wem</Path>
+						</File>
+						<File Id="861117236" Language="SFX">
+							<ShortName>Stinger Game over Battle Sn.wav</ShortName>
+							<Path>SFX/Stinger Game over Battle Sn_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -193,11 +274,11 @@
 					<IncludedMemoryFiles>
 						<File Id="304381675" Language="SFX">
 							<ShortName>SFX_pinches_down.wav</ShortName>
-							<Path>SFX\SFX_pinches_down_10C4C929.wem</Path>
+							<Path>SFX/SFX_pinches_down_10C4C929.wem</Path>
 						</File>
 						<File Id="1024315553" Language="SFX">
 							<ShortName>SFX_pinches_up.wav</ShortName>
-							<Path>SFX\SFX_pinches_up_10C4C929.wem</Path>
+							<Path>SFX/SFX_pinches_up_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

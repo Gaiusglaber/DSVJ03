@@ -3,7 +3,6 @@
 	<Switches>
 		<WorkUnit Name="Default Work Unit" ID="{4239D07F-3584-4F4B-8015-0844E7778181}" PersistMode="Standalone">
 			<ChildrenList>
-				<SwitchGroup Name="New_Switch_Group" ID="{F7C8DA4B-5CEC-43B8-A4E1-95C3A5D12C64}"/>
 				<SwitchGroup Name="game" ID="{49C6A159-3179-40DE-BCB8-355C9C9786ED}"/>
 			</ChildrenList>
 		</WorkUnit>

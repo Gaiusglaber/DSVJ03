@@ -70,7 +70,7 @@
 						<Action Name="" ID="{2068C4D5-F045-4ED7-89C1-BE04242A7FFB}" ShortID="101842776">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Collect" ID="{913A9931-F365-415B-826F-BD15FE041684}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+									<ObjectRef Name="sfx_collect" ID="{72E511AC-4965-4595-B10B-A463B8497406}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -101,6 +101,74 @@
 				<Event Name="stop_Music" ID="{CB30E6D1-101D-42EB-AAFA-09EA6145C7AD}">
 					<ChildrenList>
 						<Action Name="" ID="{FCD3EF3B-5823-46C3-B6EF-06484FE89E24}" ShortID="281694977">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{22993EF6-59DA-4772-9461-6F7FCF03116B}" WorkUnitID="{1BA39DF3-1588-4D7E-A418-0C1F7E37FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="music_menu_play" ID="{0DAFCDA5-D10B-4DEB-A157-FB443590789E}">
+					<ChildrenList>
+						<Action Name="" ID="{A5899D51-0264-45B9-990E-CE03B802A6F1}" ShortID="703574629">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="main_menu PRESERVATION_84pbm" ID="{F5FC362A-BD8E-457F-B4B1-2B133C44880D}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="exit_menu" ID="{D02B42A0-7DE9-4031-B87E-E12F3F8AAABF}">
+					<ChildrenList>
+						<Action Name="" ID="{5BF4058E-CACD-49ED-AD36-0CCE747F1B20}" ShortID="991319604">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="main_menu PRESERVATION_84pbm" ID="{F5FC362A-BD8E-457F-B4B1-2B133C44880D}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="button_hover" ID="{0446DD03-32A6-480F-8AD5-7CF12D91899C}">
+					<ChildrenList>
+						<Action Name="" ID="{999E1055-1EB0-4EA5-A1D1-5005923756E2}" ShortID="1035751588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="button_1" ID="{DFA3B71B-69E0-43B4-A328-789A756A36C7}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="button_select" ID="{A4A31645-C4BA-4A79-91B2-AE8812AA6176}">
+					<ChildrenList>
+						<Action Name="" ID="{6B124225-5106-4439-82B1-B45FFA4B113B}" ShortID="813292166">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="button_2" ID="{0FAC43B7-596A-43C8-B32E-A97D6DDABEEB}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="player_death" ID="{D1B8853E-4BA8-45E9-B416-A9C756974ABD}">
+					<ChildrenList>
+						<Action Name="" ID="{90A2CFE7-DF51-4768-BAFF-2EAF030C189B}" ShortID="181531562">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_muere" ID="{ECA1320A-56C4-4A48-A834-C7E3C17082A8}" WorkUnitID="{2FEF5410-8492-4D8A-8828-709452CC7011}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{09F2DA6F-7C32-4F98-86FF-1BD65D04B06D}" ShortID="1042360125">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
 							</PropertyList>

@@ -1,11 +1,16 @@
 Event	ID	Name			Wwise Object Path	Notes
 	747415224	spikes			\Default Work Unit\spikes	
 	790135102	light_switch			\Default Work Unit\light_switch	
+	1135171848	button_select			\Default Work Unit\button_select	
 	1562304622	play_ambient			\Default Work Unit\play_ambient	
+	1690420221	exit_menu			\Default Work Unit\exit_menu	
+	1701177942	button_hover			\Default Work Unit\button_hover	
+	2013246097	music_menu_play			\Default Work Unit\music_menu_play	
 	2290876741	collect_special			\Default Work Unit\collect_special	
 	2299321487	enemy			\Default Work Unit\enemy	
 	2837384057	stop_Music			\Default Work Unit\stop_Music	
 	2932040671	play_music			\Default Work Unit\play_music	
+	3083087645	player_death			\Default Work Unit\player_death	
 	3833651337	jump			\Default Work Unit\jump	
 	3868165313	collect_item			\Default Work Unit\collect_item	
 
@@ -19,41 +24,57 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	1068188150	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\silencio_2\Wwise Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	50122717	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	69101487	pajaro_2_120bpm	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\pajaro_2_120bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_2_120bpm		181568
-	87939959	pajaro_lejano_69_91bpm	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\pajaro_lejano_69.91bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_lejano_69_91bpm		388216
-	100935755	notas01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\notas03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\notas01		1472700
-	118893237	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472700
-	158260033	cajon	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\cajon_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\cajon		1472700
-	160241459	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta05_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	160891480	wind_120bpm	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\wind_120bpm_13CC5CAA.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm		324476
-	234350900	notas01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\notas04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\notas01		1472700
-	261344466	pad01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\pad01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\pad01		6258512
-	304381675	SFX_pinches_down	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_pinches_down_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_pinches\SFX_pinches_down		99164
-	377561176	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta07_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	392681875	notas01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\notas01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\notas01		1472700
-	394480189	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta06_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	407033137	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472704
-	429520276	SFX_CollectItem	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_CollectItem_AD53A999.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\SFX_Collect\SFX_CollectItem		108380
-	444522564	sfx_enemy_peru	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\enemy_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_enemy\sfx_enemy_peru		298180
-	445813008	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo06_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472700
-	449504396	SFX_Jump3	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_Jump3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump3		254500
-	481684876	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472700
-	579154707	SFX_LightOff	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_LightOff_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_light\SFX_LightOff		372468
-	660811282	notas01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\notas02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\notas01		1472704
-	691303955	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	691438173	SFX_collect_special	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_collect_special_436F66A1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\SFX_collect_special		279620
-	770163940	SFX_Jump1	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_Jump1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump1		294196
-	780529489	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472704
-	850473372	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472700
-	881712007	wind_120bpm_02	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\wind_120bpm_BE268F36.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm_02		1543412
-	886013751	swirls01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\swirls01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\swirls01		1472700
-	918173583	SFX_LightOn	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_LightOn_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_light\SFX_LightOn		497644
-	990781874	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta08_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	993192625	pajaro_1_120bpm	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\pajaro_1_120bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_1_120bpm		196820
-	1017524383	SFX_Jump2	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_Jump2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump2		322488
-	1017548025	flauta01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\flauta01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\flauta01		1472700
-	1024315553	SFX_pinches_up	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\SFX_pinches_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_pinches\SFX_pinches_up		96004
-	1028650602	bajo01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\Music Peru\bajo05_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Music Peru\bajo01		1472700
-	1045311171	wind_120bpm_01	C:\Users\lucas\Documents\GitHub\DSVJ03\Preservation\.cache\Mac\SFX\wind_120bpm_A1528CFB.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm_01		543932
+	4427259	collect04	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect04		74048
+	50122717	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	69101487	pajaro_2_120bpm	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\pajaro_2_120bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_2_120bpm		181568
+	87939959	pajaro_lejano_69_91bpm	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\pajaro_lejano_69.91bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_lejano_69_91bpm		388216
+	100572378	collect02	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect02		75024
+	100935755	notas01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\notas03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\notas01		1472700
+	118893237	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472700
+	158260033	cajon	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\cajon_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\cajon		1472700
+	160241459	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta05_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	160891480	wind_120bpm	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\wind_120bpm_13CC5CAA.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm		324476
+	234350900	notas01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\notas04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\notas01		1472700
+	257097975	button_1	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\button_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Buttons\button_1		102824
+	261344466	pad01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\pad01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\pad01		6258512
+	266060968	collect07	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect07		73904
+	304381675	SFX_pinches_down	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_pinches_down_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_pinches\SFX_pinches_down		99164
+	340723277	main_menu PRESERVATION_84pbm	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\main_menu PRESERVATION_84pbm_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_menu\main_menu PRESERVATION_84pbm		4283328
+	377327609	collect01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect01		72912
+	377561176	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta07_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	392681875	notas01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\notas01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\notas01		1472700
+	394480189	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta06_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	407033137	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472704
+	444522564	sfx_enemy_peru	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\enemy_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_enemy\sfx_enemy_peru		298180
+	445813008	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo06_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472700
+	449504396	SFX_Jump3	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_Jump3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump3		254500
+	462483467	collect12	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect12		67824
+	481684876	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472700
+	507976738	collect05	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect05		78040
+	517650223	collect11	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect11		80160
+	535905349	collect03	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect03		71900
+	579154707	SFX_LightOff	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_LightOff_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_light\SFX_LightOff		372468
+	660811282	notas01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\notas02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\notas01		1472704
+	680198452	personaje_muere	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\personaje_muere_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_muere\personaje_muere		458040
+	691303955	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	691438173	SFX_collect_special	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_collect_special_436F66A1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\SFX_collect_special		279620
+	717062850	collect10	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect10		88360
+	751404511	collect08	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect08_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect08		86232
+	770163940	SFX_Jump1	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_Jump1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump1		294196
+	780529489	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472704
+	789127350	button_2	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\boton_planeta1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Buttons\button_2		164460
+	807267292	collect06	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect06		73980
+	850473372	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo04_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472700
+	861117236	personaje_muere_2	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Stinger Game over Battle Sn_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_muere\personaje_muere_2		990864
+	881712007	wind_120bpm_02	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\wind_120bpm_BE268F36.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm_02		1543412
+	886013751	swirls01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\swirls01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\swirls01		1472700
+	918173583	SFX_LightOn	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_LightOn_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_light\SFX_LightOn		497644
+	965521990	collect09	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Collect\collect09_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_collect\collect09		82480
+	990781874	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta08_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	993192625	pajaro_1_120bpm	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\pajaro_1_120bpm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\sfx_ambient\pajaro_1_120bpm		196820
+	1017524383	SFX_Jump2	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_Jump2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Player\sfx_jump\SFX_Jump2		322488
+	1017548025	flauta01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\flauta01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\flauta01		1472700
+	1024315553	SFX_pinches_up	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\SFX_pinches_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_world\sfx_pinches\SFX_pinches_up		96004
+	1028650602	bajo01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\Music Peru\bajo05_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_background\Music\Music Peru\bajo01		1472700
+	1045311171	wind_120bpm_01	Y:\Documents\GitHub\Preservation\.cache\Mac\SFX\wind_120bpm_A1528CFB.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Amb\ambient_wind\wind_120bpm_01		543932
 

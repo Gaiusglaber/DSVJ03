@@ -9,6 +9,7 @@
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="steps_velocidad" ID="{8EC4E2DB-5FBF-494E-BCE5-CE456B5F17B3}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
