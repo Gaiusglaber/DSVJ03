@@ -28,6 +28,7 @@ This is a game being developed by students from <a href="https://www.imagecampus
 - **Walter Sanchez** - *Art*
 - **Juan Albertsen** - *Audio*
 - **Paula Miranda** - *Audio*
+- **Jeremías Aguirre** - *Audio*
 - **Juan Fraga** - *Testing*
 - **Nombre Apellido** - *Testing*
 
