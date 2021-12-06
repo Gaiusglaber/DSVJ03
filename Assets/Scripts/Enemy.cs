@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            AkSoundEngine.PostEvent("enemy", gameObject);
+            //AkSoundEngine.PostEvent("enemy", gameObject);
             OnPlayerHit?.Invoke();
         }
     }
