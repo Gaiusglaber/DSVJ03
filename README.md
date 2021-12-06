@@ -30,7 +30,14 @@ This is a game being developed by students from <a href="https://www.imagecampus
 - **Paula Miranda** - *Audio*
 - **Jeremías Aguirre** - *Audio*
 - **Juan Fraga** - *Testing*
-- **Nombre Apellido** - *Testing*
+- **Juan Cruz Mendez** - *Testing*
+- **Hernan Diaz** - *Testing*
+- **Jazmin Franchi** - *Testing*
+- **Antonio Restrepo** - *Testing*
+- **Ivan Bouzada Ickowicz** - *Testing*
+- **Nicolas David Luna** - *Testing*
+- **Sebastian Carrizo Rodas** - *Testing*
+
 
 
 This game was also possible thanks to the support of these professors:
