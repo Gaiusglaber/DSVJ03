@@ -4,9 +4,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private TMPro.TMP_InputField InputX = null;
-    [SerializeField] private TMPro.TMP_InputField InputY = null;
-    [SerializeField] private TMPro.TMP_InputField InputZ = null;
     [SerializeField] private KeyCode keyToTurnOnLantern = KeyCode.Escape;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed = 180;
@@ -90,11 +87,6 @@ public class PlayerMovement : MonoBehaviour
             OnPlayerDie?.Invoke();
         }
     }
-    public void Teleport()
-    {
-        Vector3 teleportPosition = new Vector3(float.Parse(InputX.text.ToString()), float.Parse(InputY.text.ToString()), float.Parse(InputZ.text.ToString()));
-        transform.position = teleportPosition;
-    }
     private void TalkToNPC(bool canTalkToNPC, GameObject NPC)
     {
         this.canTalkToNPC = canTalkToNPC;
@@ -116,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded && _velocity.y < 0)
         {
             _velocity.y = -2f;
-            _jumpCounter = 0;
+           // _jumpCounter = 0;
             doubleJump = false;
         }
 
@@ -135,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetFloat("Speed", 1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && _jumpCounter <= 1) 
+        if (Input.GetKeyDown(KeyCode.Space) && _jumpCounter <= 2) 
         {
             _jumpCounter++;
             AkSoundEngine.PostEvent("jump", gameObject);
@@ -175,11 +167,11 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetTrigger("OnJumpUp");
         _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
 
-        while (_velocity.y >= 0)
+        while (_velocity.y >= -5f)
         {
             if (doubleJump)
             {
-                _velocity.y += Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+                _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
                 doubleJump = false;
             }
             yield return new WaitForEndOfFrame();
@@ -193,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _animator.SetTrigger("OnJumpLand");
+        _jumpCounter = 0;
     }
 
     private bool OnSteepSlope()
