@@ -1,5 +1,5 @@
 <p align="center">
-<img src="logo.png" alt="The Project Preservation"/>
+<img src="logo-game.png" alt="The Project Preservation"/>
 </p>
 
 The Project Preservation
